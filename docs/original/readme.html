@@ -1,0 +1,753 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+<TITLE>DNML(Digital Novel Markup Language) Readme</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<TABLE BORDER="0">
+   <TR><TD WIDTH="600">
+<!------------------------------------------------------>
+
+<basefont size="3">
+<CENTER><FONT SIZE=+3>DNML</FONT></CENTER>
+<center><B>Digtal Novel Markup Language</B><center><br>
+
+
+<center><B>もくじ</B><center>
+<table border="1">
+<tr><td>
+<a href="#first">
+<CENTER><FONT SIZE=+1><B><I>はじめに</I></B></FONT></CENTER>
+</a>
+<a href="#usage">
+<CENTER><FONT SIZE=+1><B><I>使い方</I></B></FONT></CENTER>
+</a>
+
+<a href="#faq">
+<CENTER><FONT SIZE=+1><B><I>よくある質問とその答え</I></B></FONT></CENTER>
+</a>
+
+<a href="#license">
+<CENTER><FONT SIZE=+1><B><I>ライセンス</I></B></FONT></CENTER>
+</a>
+
+<a href="#thanks">
+<CENTER><FONT SIZE=+1><B><I>謝辞</I></B></FONT></CENTER>
+</a>
+<a href="#history">
+<CENTER><FONT SIZE=+1><B><I>更新履歴</I></B></FONT></CENTER>
+</a>
+</td></tr>
+</table>
+
+<P>
+<!------------------------------------------------------------->
+<TABLE><CENTER>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#88dddd">
+   <FONT SIZE=4><b><center>
+   <a name="first">はじめに</a>
+   </center></b></FONT></CENTER>
+   </td>
+</tr>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#ddffff">
+　DNML(Digtal Novel Markup Language)は<a href="dnml_ref/index.html">HTMLライクなテキスト</a>を
+書くことよって、簡単にデジタルノベルを作れるようにするツール
+です。<BR>
+　オリジナルの作品はもちろん、特徴としてLeafやTacticsやアリスのゲームの二次創作を効果的に作成することができます。<BR>
+　Susie-Pluginを使い、ゲームの画像を直接読み込み表示します。<BR>
+　BGMもオリジナルの物を演奏できます。<BR>
+　画面の文字もLeafフォントを使用できますので、止まっている画
+像をみればオリジナルのゲームと見分けはつかないでしょう。<BR>
+　このプログラムを使用するには各ゲームのインストールしてある
+PCとそのCDが必要です。<BR>
+　対応OSは日本語、英語MS Windows 95/98/NTです。<BR>
+　画面モードは65000色以上でプレイしてください。<BR>
+　なお、このプログラムはフリー＆無保証です。<BR>
+　このソフトを使用したことにより発生したいかなる損害においても
+一切の責任は負いません。<BR>
+   </td>
+</tr>
+</table>
+
+
+
+<P>
+<!------------------------------------------------------------->
+<TABLE><CENTER>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#88dddd">
+   <FONT SIZE=4><b><center>
+   <a name="usage">使い方</a>
+   </center></b></FONT></CENTER>
+   </td>
+</tr>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#ddffff">
+
+<table border="1"><tr><td>
+<B><FONT size="+2" COLOR="RED">
+
+Kanon,AIRで遊ぶには<a href="http://member.nifty.ne.jp/hiro-inoue/">いのうえひろしさんのホームページ</a>で、
+Susie-Pluginをダウンロードしてください。<BR>
+そののちに、IFPDT10.SPIをDNMLを同じフォルダにコピーして下さい。<BR>
+</B></FONT>
+AIRとKanonは同じPluginを使いますので、AIRで遊ぶために新しくPluginを
+手に入れる必要はありません。</td></tr>
+
+</H2>
+</table>
+<center><h2>1</h2></center>
+　スタートメニューよりDNMLブラウザを選択します。<BR>
+スタートメニューへ登録していない場合はDNMLをインストールしたフォルダより
+DNML.EXEを実行してください。<br>
+<p>
+<center><h2>2</h2></center>
+　DNMLブックフォルダの下にあるサンプルを見てください。<B><FONT COLOR=red>右クリック</FONT></B>のメニューより[本を開く]を選択するか、エクスプローラからドロップしてください。<BR>
+これらサンプルは自分で二次創作を作る時の参考になります。<BR>
+<P>
+
+<P>
+このプログラムの説明を見るには「チュートリアル.dnml」
+を見てください。<br>
+DNMLで書かれた作品は
+<a href="http://www.vector.co.jp/authors/VA015183/">P.A.W.</a>
+にアーカイブしてあります。
+<BR>
+<center><h2>3</h2></center>
+<b>質問は<a href="http://bbs1.otd.co.jp/10102/bbs_thread">掲示板</a>でお願いします。</b>DNMLブックをよんだ感想や、DNMLの書き方が分からないときなど、気軽に
+書き込んでください。
+
+<hr>
+<P>
+<P>
+<b><font size="4">メニューの説明</font></b><BR>
+<img src="./html_image/main_menu.gif" width="306" height="228">
+
+<table border="1">
+
+<tr><td>
+本を開く<BR>(CTRL-<B>O</B>pen)</td><td>DNMLブックを開きます<BR>
+</td></tr>
+<tr><td colspan="2">
+<hr>
+</td></tr>
+<tr><td>
+次の選択肢まで<BR>(CTRL-<B>N</B>ext or PageDOWN)</td><td>次の選択肢まで、とばします。<BR>
+</td></tr>
+<tr><td>
+現在のしおりへセーブ<BR>(CTRL-<B>S</B>ave)</td><td>現在のしおりへセーブをします。<BR>
+</td></tr>
+<tr><td>
+現在のしおりへロード<BR>(CTRL-<B>L</B>oad)</td><td>現在のしおりからロードをします。<BR>
+</td></tr>
+<tr><td>
+しおり<BR>(CTRL-<B>B</B>ookmark)</td><td>ロードやセーブをします。<BR>
+</td></tr>
+<tr><td colspan="2">
+<hr>
+</td></tr>
+
+<tr><td>
+設定<BR>(CTRL-<B>M</B>enu)</td><td>効果の速度やCDの演奏、効果音の使用などを設定します。<BR>
+</td></tr>
+
+<tr><td>
+画像の保存<BR>(CTRL-<B>P</B>rint)</td><td>いま表示されている画像を保存します。<BR>
+</td></tr>
+
+
+<tr><td>
+画面</td><td>画面モードを変更します。(現在選択できません)<BR>
+</td></tr>
+
+<tr><td colspan="2">
+<center>システム</center>
+</td></tr>
+
+<tr><td>
+デバック</td><td>今読み込んでいるDNMLブックの内容を表示します。<BR>
+</td></tr>
+
+<tr><td>
+ヘルプ</td><td>このファイルを表示します。<BR>
+</td></tr>
+<tr><td>
+アバウト</td><td>ヴァージョン情報などを表示します。<BR>
+</td></tr>
+<tr><td>
+DNMLタグ一覧</td><td>DNMLタグの説明を開きます。<BR>
+</td></tr>
+
+<tr><td colspan="2">
+<center>インターネット</center>
+</td></tr>
+
+
+<tr><td>
+最新版のダウンロード</td><td>DNMLの最新版の置いてあるホームページを開きます。<BR>
+</td></tr>
+<tr><td>
+ブックのダウンロード</td><td>DNMLブックのライブラリを開きます。<BR>
+</td></tr>
+<tr><td>
+掲示板へ行く</td><td>DNMLのサポート掲示板を表示します。DNMLの感想やバグレポートなど歓迎です。<BR>
+</td></tr>
+<tr><td>
+ランキングへ投票</td><td>DNMLのサポート掲示板を表示します。DNMLの感想やバグレポートなど歓迎です。<BR>
+</td></tr>
+<tr><td colspan="2">
+<hr>
+</td></tr>
+
+<tr><td>
+終了<BR>(CTRL-<B>Q</B>uit or ESC)</td><td>アプリケーションを終了します。
+</td></tr>
+
+</td></tr>
+</table>
+
+その他のキーボードでの操作<BR>
+　・[スペース]か[リターン]<BR>
+　　　次のメッセージ<BR>
+　・[ALT]<BR>
+　　　メニューの表示<BR>
+
+
+<P>
+<hr>
+<P>
+   </td>
+</tr>
+</table>
+
+<!------------------------------------------------------------->
+<TABLE><CENTER>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#88dddd">
+   <FONT SIZE=4><b><center>
+   <a name="leaffont">Leafフォントでのプレイの仕方</a>
+   </center></b></FONT></CENTER>
+   </td>
+</tr>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#ddffff">
+　てんさんのご厚意によりLeafフォントをTrueFont形式に変換する
+ツールを同梱させていただきました。<br>
+　thttf121.lzhを解凍してMKLFTTF.HTM
+の内容にしたがい、Leafフォントをインストールしてください。<br>
+　その後、THテンプレート.dnml、痕テンプレート.dnml、雫テンプレート.dnml、
+をエディタで開き、<br>
+
+<hr>
+<TT>
+&lt;FONT SRC="ＭＳ 明朝" HEIGHT="25" SKIP="30"&gt;<br>
+&lt;!--&lt;FONT SRC="Ｌｅａｆ" HEIGHT="25" SKIP="30"&gt;<br>
+&lt;!-- フォントの指定 --&gt;<br>
+<hr>
+とある所を
+<hr>
+&lt;!--&lt;FONT SRC="ＭＳ 明朝" HEIGHT="25" SKIP="30"&gt;<br>
+&lt;FONT SRC="Ｌｅａｆ" HEIGHT="25" SKIP="30"&gt;<br>
+&lt;!-- フォントの指定 --&gt;<br>
+</TT>
+<hr>
+と書き直してください。
+
+
+<BR>
+   </td>
+</tr>
+</table>
+<!------------------------------------------------------------->
+
+
+<P>
+<!------------------------------------------------------------->
+<TABLE><CENTER>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#88dddd">
+   <FONT SIZE=4><b><center>
+   <a name="faq">よくある質問とその答え</a>
+   </center></b></FONT></CENTER>
+   </td>
+</tr>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#ddffff">
+<UL>
+   <LI>Q1.<BR><FONT COLOR=purple><B>グラフィックが全く表示されません。</B></FONT><BR>
+<P>
+   そのゲームの画像を読み込むのに必要なSusie-Pluginを入れて下さい。
+   場所は、<a href="http://www.vector.co.jp/authors/VA015183/">
+P.A.W.</a>のホームページに書いてあります。
+   <FONT COLOR="red"><B>Kanon用のプラグインは同梱していません。</FONT></B>
+   また、ゲームのインストールされている位置が認識されていない
+   可能性があります。また、体験版や試用版が
+   インストールされているとそれと間違えることがあります。
+   スタートメニューよりゲームの再検索を実行して、
+   各ゲームのインストールされている位置を
+   正しく設定してください。
+<P>
+   <LI>Q2.<BR><FONT COLOR=purple><B>ENTERタグのキーでALIGNでなくALINEと書いてあるブックがあります。
+   どちらが正しいのですか？</B></FONT><BR>
+<P>   
+   旧バージョンでは綴りを間違えていたのでそうなってます(^^;;。<BR>
+   どちらでも動きますが、当然ALIGNが正しいです。
+<P>
+   <LI>Q3.<BR><FONT COLOR=purple><B>痕でこのようなDNMLを書いてもちゃんと動きません<BR></B>
+
+   &lt; A HREF="#初音" ALT="初音と帰る"&gt;<BR>
+   ・<BR>
+   ・<BR>
+   &lt;A NAME="初音"&gt;<BR></FONT></FONT>
+   
+   痕ではBGMの9曲目の名前が"初音"になっています。ですからテンプレートファイル
+   の中で<BR>
+   &lt;ALIAS SRC="初音" DEST="09.CDA"&gt;<BR>
+   と設定してあるので"初音"は"09.CDA"に置換されます。<BR>
+   ですから問いのDNMLは<BR>
+   <B>
+   &lt;A HREF="#初音" ALT="初音と帰る"&gt;<BR>
+   ・<BR>
+   ・<BR>
+   &lt;A NAME="09.CDA"&gt;<BR>
+   </B>
+   となります。
+   ENTERタグやA NAMEタグの名前には曲名や背景の名前とかさならないようにしてください。
+
+<P>
+   <LI>Q4.<BR><FONT COLOR=purple><B>「環境設定.dnml」がありませんとエラーがでます。</B></FONT><BR>
+　　ゲームのインストールしてある場所はパソコンによって違うので「環境設定.dnml」は
+スタートメニューより<B><FONT COLOR="RED">「ゲームの再検索」</B></FONT>
+(もしくはdnml.exeと同じフォルダにあるseekgeme.exe)を選ぶと自動的に作られます。
+</UL>
+   </td>
+</tr>
+</table>
+<!------------------------------------------------------------->
+
+
+<P>
+<!------------------------------------------------------------->
+<TABLE><CENTER>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#88dddd">
+   <FONT SIZE=4><b><center>
+   <a name="license">ライセンス</a>
+   </center></b></FONT></CENTER>
+   </td>
+</tr>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#ddffff">
+
+<OL>
+　<LI>DNMLはフリーソフトです。自由に使用してください。
+<P>
+   <LI>使用者の作成したDNML用のデータに関して花梨は一切の権利を主張しません。
+   自作のデータは自由に再配布、商利用が可能です。
+<P>
+   <LI>DNML.EXE及びそのシステムの著作権は花梨が保持しております。<BR>
+<P>
+   <LI>再配布条件
+<P>
+　DNMLの普及のためにもコミケで自作のデータと配布することを推奨します(^_^)/。<BR>
+<P>
+      DNMLをオンラインで配布する場合は、それを無料でおこなう限り自由。
+連絡は必要ありません。コミケなどで自作のデータと一緒に配る場合も同じです。
+許可も不要で自由に配布できます。
+<P>
+     　ただし、お金を取って作品を配布する場合には、そのコピーを一つ花梨に渡さなければ
+     なりません<BR>
+<P>
+
+</OL>
+<P>
+　自作ゲームのシステムとして配布する場合はdnml.exeだけ配布しても結構です。<BR>
+　DNMLの実行に必要なファイルはDNML.EXEのみです。レジストリの設定なども
+行う必要はありません。<BR>
+　dnml.exeをリネームすれば同じフォルダにある同じタイトルのDNMLブックを読み
+込みます。<BR>
+(例えば、DNML.EXEをMYGAME.EXEにリネームして起動すると、常に同じフォルダに
+あるMYGAME.DNMLを実行します。こうすればユーザーはDNML.EXEの存在を気にせずに
+すみます)<BR>
+　セーブは最初に読み込んだDNMLブックと同じフォルダに記録します。よってCD-ROM
+から実行した場合はセーブできません。
+<P>
+　同人誌みたく印刷とかしなくてもフロッピー買ってくるだけで配布できるし、
+見栄えもいいからノートパソコンとか持っていってデモすれば
+結構売れると思うけど(^^;;<BR>
+　スタートメニューに自作のデータを登録するようにインストールプログラム
+をカスタムして欲しい、DNMLのホームページでブースのCMをして欲しい、
+フロッピーから起動できるように最小のファイルだけ配布したいなどの要望は気軽に連絡してください。
+   </td>
+</tr>
+</table>
+
+
+
+
+<P>
+<!------------------------------------------------------------->
+<TABLE><CENTER>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#88dddd">
+   <FONT SIZE=4><b><center>
+   <a name="thanks">謝辞</a>
+   </center></b></FONT></CENTER>
+   </td>
+</tr>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#ddffff">
+
+<P>
+<P>
+Susie PluginインターフェースとJPEG読み込み用プラグイン「IFJEPGD.SPI」
+にはkanaさんのコードを使用しています。ありがとうございました。<BR>
+<a href="http://www2f.biglobe.ne.jp/~kana/">kana's Home Page</a>
+<BR>
+<P>
+PNG画像読み込み用のSusie Plugin「IFPNG.SPI」は
+<a href="gv9k-setg@asahi-net.or.jp">K's氏</a>
+の作品です。ありがとうございます。<BR>
+<P>
+JPEGファイルのセーブには<A HREF="http://web.ukonline.co.uk/Members/julian.smart/indexfr.html">ANTHEMION SOFTWARE</A>のCImageクラスを使用しています。<BR>
+<P>
+　Susie-PluginとLeafフォント変換ツールの使用と同梱を許可して
+くださった、てんさん感謝いたします。<br>
+てんさんのHP「Production StarHole」
+<a href="http://hp.vector.co.jp/authors/VA000482/">
+http://hp.vector.co.jp/authors/VA000482/
+</a><BR>
+リーフフォントの作り方について質問がある時もここでおねがいします。
+
+<P>
+素晴らしいViewerを制作してくださったたけちんさんに感謝いたします。<BR>
+<P>
+狩りの月と絆の同梱を快諾してくださった<a href="mailto:mxb03256@nifty.ne.jp">千億
+光年さん</a>に感謝します。<BR>
+
+<P>
+「志保ちゃん隊の幽霊退治」と「心の空き地、雨降り止まずに」と「その場所へ」と
+「想い香る里-キミの名の雪うさぎ-」の同梱を快諾してくださった
+<a href="mailto:peru@pluto.dti.ne.jp">学さん</a>に感謝いたします。<BR>
+
+「想い香る里」の同梱を快諾してくださった雫さんに感謝いたします。
+<P>
+「結晶の想い」の同梱を快諾してくださったGUYじろうさんに感謝いたします。
+<P>
+「birth Kanon」の同梱を快諾してくださったtakitaさんに感謝いたします。
+<P>
+とらいあんぐるハート２の画像読み込み用の「IFVORYS.SPI」の作成と配布を
+許可して下さいましたガトー氏に感謝いたします。<BR>
+
+<P>
+ONEの画像読み込み用のプラグイン「AXONE.SPI」の作成と配布を許可して
+下さいました<a href="mailto:QZC05100@nifty.ne.jp">ぜえた</a>氏に感謝いたします。<BR>
+axone.spiのドキュメントはaxone.txtにかいてあります。
+
+
+<BR>
+   </td>
+</tr>
+</table>
+
+
+<P>
+<!------------------------------------------------------------->
+<TABLE><CENTER>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#88dddd">
+   <FONT SIZE=4><b><center>
+   <a name="history">更新記録</a>
+   </center></b></FONT></CENTER>
+   </td>
+</tr>
+<TR>
+   <TD WIDTH="550" BGCOLOR="#ddffff">
+   <b>　Version 2.24で<BR></B>
+・ゲームのインストール位置の入ったカードを作る。<BR>
+例)エイリアスが"KANON"の場合は"KANON_FOLDER"というカードにも
+インストール位置が入っている。<BR>
+(「ゲームの再検索」を実行して下さい)<BR>
+
+・ブックを連続で開いたときに、同じ乱数が続くのを修正。<BR>
+
+・インプットのWIDTHを指定したときに幅がおかしくなるのを修正。<BR>
+
+・インプットの幅が少し足りないのを修正。<BR>
+・インプットのテキスト入力に枠を付ける。<BR>
+・BACKGROUNDでマイナスの値を使うと縦幅が縮まるのを修正<BR>
+   <b>　Version 2.22で<BR></B>
+・<BR>
+＜QUESTION ANSWER="(点=[ABC])"＞<BR>
+＜QUESTION ANSWER="(POINT=点)"＞<BR>
+＜WRITE SRC="点"＞＜WRITE SRC="POINT"＞<BR>
+<BR>
+が"ABC1"と表示されるのを修正。<BR>
+<BR>
+・A HREFタグでVIEW属性を使い、一つも選択肢を選択肢を表示しない状態でも、<BR>
+一つだけ表示してしまうのを修正。<BR>
+<BR>
+   <b>　Version 2.20で<BR></B>
+・　次の選択肢まで進むを選択中でもCURTAINの効果だけは実行されてしまうのを
+修正<BR>
+・BACKGROUNDのTOPとLEFTがしおりに保存されないのを修正<BR>
+・禁則処理で、文字を表示した範囲がSTAGEより大きくなった時に、文字の効果を
+なしにしておくと文字が表示されないのを修正。<BR>
+・禁則処理した次の行から改行が聞かなくなるのを修正<BR>
+   <b>　Version 2.18で<BR></B>
+・乱数を作るときに、同じ値が続くことがあるのを修正。
+<BR>
+・SCREENをSTAGRより大きくすると、選択肢が表示されなくなるのを
+修正
+<BR>
+・ENTERでALPHA属性が効いていないのを修正
+<BR>
+・「次の選択肢まで進む」を選択して、それをストップさせた選択肢を
+選ぶときに、一回目のマウスクリックが効かないのを修正。
+<BR>
+・フォントタグの仕様履歴がセーブされていないので、しおりをロード
+した時に＜/FONT＞を使うとおかしくなるのを修正。
+・標準で添付されているIFJPEGD.SPIとIFPNG.SPIはPLUGINタグを
+使わなくても自動で使用するようにする。
+<BR>
+   <b>　Version 2.17で<BR></B>
+フォントの色を保存できないのを治す。
+<BR>
+　『auther』を『author』になおす。
+<BR>
+　MODE="PASS",MODE="GHOST"指定のときもウィンドウが消えるのをなおす。
+<BR>
+　選択肢のｘ座標表示限界がテキストよりも小さくなるバグを修正。
+<BR>
+ヴァージョンのカードがカードではなくエイリアスに
+なっていたのを修正
+<BR>
+ALPHAでマスクが少しだけ透けるのを修正
+<BR>
+ACTでALPHAにマスクを指定して、LEFT属性にマイナスを指定したときに
+表示位置がおかしくなるのを修正。
+<BR>
+   <b>　Version 2.15で<BR></B>
+　ACTタグでALPHA画像を指定するときに使うSUBFOLDER属性を追加。<BR>
+絵とマスク画像を別々のフォルダにおけます。<BR>
+　WINDOWにEFFECT属性を足す。ウィンドウが表示されるときの効果を指定できます。
+<BR>
+ACTタグでALPHA画像を指定したときに、画面からはみ出すとハングアップする
+バグを修正。
+　EF_BLACK_WIPEが効いてないのを修正。<BR>
+
+   <b>　Version 2.10で<BR></B>
+　CUTRAINタグを足す。画面表示を一時停止して人物や文字の表示を貯めておき、まとめて行います。これと、BACKGROUNDなどを組み合わせて、複数の人物の同時退場、背景と人物を同時に入れ替える、文字をエフェクトをつけて表示する、画面のフラッシュ、ブラックイン、ホワイトアウト、クロスフェード、などができます。<BR>
+<P>
+　ACTタグのMODE属性の仕様を変える。<BR>
+MODE="GHOST"の名前をMODE="PASS"に変えて、MODE属性の使い方をBGMやSOUNDと統一する。<BR>
+MODE="GHOST"もこれからずっと使えますが、なるべく使わないで下さい。<BR>
+<P>
+　BGMをフェードアウトさせるために、BGMタグにTIMEとMODE属性を足す。<BR>
+<P>
+　対になるWAITタグの効果を元に戻す&lt;/WAIT&gt;を足す。<BR>
+<P>
+　PLUGINタグでアーカイブ展開用のSusiePluginも指定できるようにする。これでSusie Pluginの競合が無くなります。<BR>
+<P>
+　ACTタグのALPHA属性でWINDOWと同じようにマスク画像を指定できるようにする。<BR>
+<P>
+　A HREFタグで強制ジャンプしたとき、画面がクリアされるバグを直す。<BR>
+<P>
+
+   <b>　Version 1.95で<BR></B>
+　{}(中かっこ)でくくることにより、属性値の中でカードの値をつかえるようにする。
+(詳しくはサンプルの「card.dnml」「card2.dnml」を見て下さい。)<BR>
+(カード関係の仕様はまだ変更される可能性があります)<BR>
+　カードの計算に左のカッコが0以外だった時に左のカッコを実行する"^"を追加。<BR>
+　行頭禁則文字に
+ "。", "、", "，", "．",
+ ",", ".", "､", "｡",
+ "」", "』", "』", "】", "〉", "》", "］", "｝", "〕", "）",
+ "]", "}", ",", "｣",
+ "；", "：", "？", "！", "”", "’", "゜", "゛",
+ "ﾞ", "ﾟ", ":", ";", ",", ".", "?", "!", """,
+を追加<BR>
+　ACTタグにPUT属性を追加する。これで表情を変えるなど画像の一部が変えやすくりました。<BR>
+　FONTタグで&lt;/FONT&gt;を使えるようにする。HTMLと同じく対になるFONTタグの効果を消します。<BR>
+　ブックに作者などの情報を書いておくCOVERタグを追加。作品を整理するときに便利です。物語には影響しませんが、なるべく書いて下さい。<BR>
+　&lt;/ICON MODE="BR"&gt;の様に&lt;/ICON&gt;タグ内でモードを指定すると、
+そのモードに登録されているアイコンを全て消すようにする。場面によってアイコンを変えたいときはこれを使って下さい。
+<BR>
+　カードの計算を&lt;A HREF&gt;タグの中にあるANSWER属性でも使えるようにしました。<BR>
+　HREF属性でアンカーへのハイパーリンク(HREF="foo.dnml#anchor"のanchorの部分)を実行した
+時のスピードが速くなりました。<BR>
+　人物画像の縁を滑らかにできるようにする。(設定ウィンドウの詳細から選ぶ)<BR>
+　デバックウィンドウでカードの裏側の確認と変更が出来るようにする。<BR>
+　メニューに[ウィンドウを消す]を追加。<BR>
+<P>
+<b>　Version 1.78で<BR></B><BR>
+　カードをブックマーク全体で共有できるMEMOタグを増やす。<BR>
+　　ブックマーク全体を扱うデータ(CGやシナリオの達成率など)が扱えます。<BR>
+サンプルの「memo.dnml」を見て下さい。
+　配布形態を変える。<BR>
+　Kanonテンプレートのアップグレート。<BR>
+　効果音にDirectSoundを使う。<BR>
+　　効果音の同時発声を出来るようにする。<BR>
+　　SOUNDタグにLOOP属性をつける。<BR>
+　　&lt;/SOUND&gt;で効果音を止められるようにする。<BR>
+　DNML.EXEをリネームして、オリジナルのゲームとして起動したときには
+メニューの「開く」と「デバッグ」を使えなくする。
+
+
+
+<b>　Version 1.73で<BR></B><BR>
+Kanon対応<BR>
+アイコンのアニメパターン数の制限をなくす<BR>
+<BR>
+
+<b>　Version 1.72で<BR></B>
+　seekgame.exeの仕様を変更。新しいゲーム用のテンプレートファイルの
+作成、配布が簡単に出来るようにする。<BR>
+　WINDOWタグのALPHA属性に画像ファイルを指定できるようにする。<BR>
+　　(ALPHAで指定した画像はモノクロに変換され、<BR>
+　　　それがウィンドウの<BR>
+　　　不透明度(いわゆるアルファチャンネル)となります。<BR>
+　　　ALPHAで指定した画像の黒い部分は透明になります。<BR>
+　　　白い部分は不透明で普通に表示されます。<BR>
+　　　灰色の部分は半透明で表示されます。<BR>
+　　　この画像のFOLDER属性はSRCと共有しますので<BR>
+　　　Windowの画像ファイルと同じフォルダに置いて下さい。<BR>
+　　　形式はDNMLで読める形なら何でもかまいません)<BR>
+　キーボードで字を送ったら、次にマウスをさわるまで
+マウスカーソルを消去するようにする。<BR>
+　キーボードで操作できるようにする。<BR>
+　　(詳しくはヘルプを見て下さい。<BR>
+　輝度調整を出来るようにする。<BR>
+　FONTタグで文字の大きさの相対指定ができるSIZE属性をつける<BR>
+　SCREENタグにWINDOWと同じ機能のSHUT属性を追加。<BR>
+'<B>&amp;lt;</B>'と'<B>&amp;gt;</B>'と'<B>&amp;amp;</B>'と'<B>&amp;quot;</B>'
+'<B>&amp;nbsp;</B>'と書くと、
+それぞれ特殊文字'<B>&lt;</B>'と'<B>&gt;</B>'と'<B>&amp;</B>'と'<B>&quot;</B>'
+と'<B> </B>'(半角スペース)が表示される
+ようにする。<BR>
+<B>1999,5,26</B><br>
+言語を切り替えられるようにする。<BR>
+INPUTや空セーブするバグを修正。<BR>
+設定をレジストリにセーブするようにする。<BR>
+<B>1999,5,2</B><br>
+SNAPを増やす。<BR>
+その他バグ修正<BR>
+<B>1999,4,26</B><br>
+ENTERにVALIGN属性を増やす。<BR>
+A HREFにVIEWとABLE属性を増やす。<BR>
+ACTのTOPとLEFTにマイナスの値を指定できるようにする。<BR>
+
+<B>1999,4,1</B><br>
+SPACEタグ、KICKタグ、TRANSPARENTキー、を増やす。<BR>
+ACT,BACKGROUND,WINDOWで画像のサイズ指定をできるようにする。<BR>
+
+<B>1999,3,15</B><br>
+FORM,INPUT,POSITIONタグを増やす。<BR>
+<B>1999,3,7</B><br>
+セーブ、ALIAS、ANSWERでマイナスが使えないバクを直す。
+<B>1999,2,21</B><br>
+  「&lt;&lt;&gt;&gt;タグ」を増やす<BR>
+  EFFECTを追加<BR>
+  B,U,I,S,SHADOWを追加<BR>
+  INCLUDEでデフォルトのFOLDERが効いてなかったのを修正。<BR>
+  Susie-Pluginが解放されてなかったのを修正。<BR>
+  
+<B>1999,2,4</B><br>
+  ANSWERキーでの演算をできるようにする。<BR>
+  EVENTタグを足す。<BR>
+  INDENTタグを足す。<BR>
+  MOON RENEWALに対応する。(ふぐつさんに感謝)
+<B>1998,12,23</B><br>
+  画面モードを変更できるようにする。
+  その他いろいろ。<BR>
+<B>1998,12,19</B><br>
+  Direct Draw化<BR>
+  画面モードを変更できるようにする。
+  その他いろいろ。<BR>
+<B>1998,11,20</B><br>
+  BOOKMARKタグを増やす<BR>
+  ブックマーク＆リロードが出来るようにする。<BR>
+  COMMANDタグからURLを開けるようにする。<BR>
+  メモリリークを直す<BR>
+  その他いろいろ。<BR>
+<B>1998,11,1</B><br>
+  フリーフォームにする。<BR>
+  TITLE、COMMANDタグを増やす。<BR>
+  ドキュメントを増やす。<BR>
+  その他いろいろ。<BR>
+<B>1998,10,20</B><br>
+  FONTタグを強化<BR>
+  (くわしくは「DNMLの仕様.txt」を見てください。)<BR>
+  ONEの画像の読み込みがおかしいのを直す。<BR>
+  文字制御のタグを本文中におけるようにする。<BR>
+<B>1998,10,5</B><br>
+  アトラク＝ナクアに対応する。(いんちきっぽいです)<BR>
+  ICONタグを使えるようにする。<BR>  
+  (くわしくは「DNMLの仕様.txt」を見てください。)<BR>
+  BGMにMIDIを使えるようにする。<BR>
+  画像の保存を出来るようにする。<BR>
+  その他いろいろ<BR>
+<B>1998,9,24</B><br>
+  SOUND、WAIT、END、PLUGINタグを使えるようにする。<BR>  
+  (くわしくは「DNMLの仕様.txt」を見てください。)<BR>
+  WINDOWを使った時に選択肢の表示が変だったのを修正<BR>
+  自動改ページを出来るようにする。<BR>
+  その他いろいろ<BR>
+
+<B>1998,9,16</B><br>
+   次の選択肢まで進むが出来るようにする。<BR>
+   セットアップをつける。<BR>
+   マルチスレッドにする。<BR>
+   TRAPタグを使えるようにする。<BR> 
+<B>1998,9,13</B><br>
+分岐が出来るようにする。<BR>
+その他いろいろ<BR>
+<B>1998,9,7</B><br>
+White Albumへ対応<BR>
+<B>1998,9,5</B><br>
+「ONE～輝く季節へ～」への対応<BR>
+<B>1998,9,4</B><br>
+　他のフォルダにあるファイルをINCLUDEした時に<BR>
+Susie-Pluginの検索に失敗するのを修正。<BR>
+<B>1998,9,3</B><br>
+　Windowクラスを変える。<br>
+　文字の再描画を出来るようにする。<br>
+　DNMLブックを連続でひらけるようにする。<br>
+　その他いろいろ。<br>
+<B>1998,9,1</B><br>
+　画面効果の速度調整を出来るようにする。<br>
+　CDの制御がおかしいのを少し直す(まだおかしい、、)<br>
+　その他いろいろ<br>
+<B>1998,8,31</B><br>
+　一部のビデオカードでマスクの作成に失敗するのを修正。<br>
+　雫、痕に対応する。<br>
+　痕サンプル「柏木家の食卓２」を入れる。<br>
+<B>1998,8,27</B><br>
+　BGMコマンドを使えるようにする。<br>
+　Wコマンドを追加。<br>
+　必要なSusie-Pluginを同梱する。<br>
+　Leafフォント変換ツールを同梱する。<br>
+<B>1998,8,25</B><br>
+　デベロッパーズリリース 0を公開。<br>
+　こんな未完成のプログラム公開するなよ、、、。<br>
+   </td>
+</tr>
+</table>
+
+<center>
+<HR>
+このソフトへの質問、要望、感想などはこちらまで<BR>
+<A HREF="http://member.nifty.ne.jp/karin/">P.A.W.</a><br>
+<A HREF="mailto:karin@paw.office.ne.jp">花梨(Email:karin@paw.office.ne.jp)</A>
+<HR>
+</center>
+
+<!------------------------------------------------------>
+</TD></TR>
+</TABLE>
+</CENTER>
+</BODY>
+</HTML>

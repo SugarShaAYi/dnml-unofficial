@@ -1,0 +1,446 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>文字の表示の仕方を設定します</h3>
+<a href="#font">FONT(文字の色や大きさを変える)</a><BR>
+<a href="#newline">NEWLINE(すぐに改行)</a><BR>
+<a href="#newpage">NEWPAGE(ずぐに改ページ)</a><BR>
+<a href="#indent">INDENT(インデント)</a><BR>
+<a href="#position">POSITION(文字の位置を変更)</a><BR>
+<a href="#clip">CLIP(文字の位置を元に戻す)</a><BR>
+<a href="#b">B(太字)</a><BR>
+<a href="#i">I(斜体)</a><BR>
+<a href="#u">U(下線)</a><BR>
+<a href="#s">S(打ち消し線)</a><BR>
+<a href="#shadow">SHADOW(影つき文字)</a><BR>
+<hr>
+
+
+
+<!---------------------------------------------------->
+<a name="font">
+<H2>FONTタグ</H2>
+<table border="1"><tr><td>
+フォントの字体や大きさや行間の幅や色を設定します。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      FACE
+      </B></FONT>[省略時は現在の値、初期値は"ＭＳ 明朝"]<BR>
+      使用するフォントの名前を指定する。
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略時は現在の値、初期値は"27"]<BR>
+      文字の高さを指定。
+
+      <FONT COLOR=purple><B><LI>
+      SKIP
+      </B></FONT>[省略時は現在の値、初期値は"30"]<BR>
+      行間の幅を指定。
+
+      <FONT COLOR=purple><B><LI>
+      COLOR
+      </B></FONT>[省略時は現在の値、初期値は"#FFFFFF"(白)]<BR>
+      文字の色を指定。色の指定の仕方はHTMLと同じ。
+      <FONT COLOR=purple><B><LI>
+      SIZE
+      </B></FONT>[省略時は何もしない]<BR>
+      文字のサイズを現在のサイズから相対指定する。<BR>
+      "+" もしくは"-"に続けて数字を指定する。<BR>
+      たとえは"+5"と指定するとフォントの大きさと行間の幅が5増える。<BR>
+      たとえは"-5"と指定するとフォントの大きさと行間の幅が5減る。<BR>
+
+
+      <FONT COLOR=purple><B><LI>
+      &lt;/FONT&gt;
+      </B></FONT>[]<BR>
+      HTMLの&lt;/FONT&gt;と同じです。対になるFONTタグの効果を消します。
+
+
+
+   </OL>
+SRC,HEIGHT,SKIP,COLORキーに<FONT COLOR=red><b>USER</b></FONT>を指定すると、最初にFONTタグを使った
+時の値に戻す。
+
+<P>
+例<BR>
+   <OL>
+      ex.
+      <FONT COLOR=green><B><LI>
+      &lt;FONT COLOR="#FF0000"&gt;
+      </B></FONT><BR>
+      文字が赤くなる
+
+      <FONT COLOR=green><B><LI>
+      白&lt;FONT COLOR="#FF0000"&gt;赤&lt;FONT COLOR="#FF0000"&gt;緑&lt;/FONT&gt;赤&lt;/FONT&gt;白
+      </B></FONT><BR>
+<table ><tr><td bgcolor="#000000">
+<B>      <FONT COLOR="#FFFFFF">白<FONT COLOR="#FF0000">赤<FONT COLOR="#00FF00">緑<!--
+--></FONT>赤</FONT>白</B>
+</td></tr></table><BR>
+と表示される。
+
+      <FONT COLOR=green><B><LI>
+      &lt;FONT HEIGHT="100" SKIP="103" COLOR="#FF0000"&gt;<BR>
+      ええ～<BR>
+      &lt;BR&gt;<BR>
+      &lt;FONT HEIGHT="USER" SKIP="USER" COLOR="USER"&gt;<BR>
+      必要以上に驚いたようだ。<BR>
+      </B></FONT><BR>
+      以上のDNMLを実行すると、文字の高さ100画素で色が赤で「ええ～」
+      と表示します。
+      &lt;BR&gt;で103画素文字の表示位置が下がります。
+      文字の色と高さと行間の幅を元に戻して「必要以上に驚いたようだ」
+      と表示します。
+
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="newline">
+<H2>NEWLINEタグ</H2>
+<table border="1"><tr><td>
+改行します。&lt;BR&gt;と違うところはマウスの左クリックを
+待ちません。
+&lt;NEWLINE&gt;の代わりに&lt;NL&gt;でも良いです。
+<hr>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="newpage">
+<H2>NEWPAGEタグ</H2>
+<table border="1"><tr><td>
+改ページします。&lt;P&gt;と違うところはマウスの左クリックを
+待ちません。
+&lt;NEWPAGE&gt;の代わりに&lt;NP&gt;でも良いです。
+<hr>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="clip">
+<H2>CLIPタグ</H2>
+<table border="1"><tr><td>
+次に書く文字の位置を保存します。<BR>
+<hr>
+</UL>
+
+キー<BR>
+   <OL>
+
+      <FONT COLOR=purple><B><LI>
+      &lt;/CLIP&gt;
+      </B></FONT><BR>
+      &lt;CLIP&gt;で現在の文字の表示位置を保存します。<BR>
+      &lt;/CLIP&gt;で対になる&lt;CLIP&gt;で保存した位置にもどします。<BR>
+      <a href="#indent">INDENT</a>と同じように重ねて使えます。
+<P>
+   </OL>
+例<BR>
+<a href="#position">POSITION</a>タグの例を見て下さい。
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="position">
+<H2>POSITIONタグ</H2>
+<table border="1"><tr><td>
+次に書く文字の位置を指定します。<BR>
+<hr>
+</UL>
+ 
+キー<BR>
+   <OL>
+
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略時は現在の値]<BR>
+      次に表示する文字の上の位置を指定。<BR>
+      これには<BR>
+      "50"のように数字を書いて<BR>
+      表示する位置を直接指定。<BR>
+
+<P>      "+50"もしくは"-50"のように数字の前に + か - の符号を付けて<BR>
+      現在位置からの相対位置を指定。<BR>
+
+<P>      "50%"のように%を付けて<BR>
+      画面上での位置を指定。<BR>
+      
+<P>
+     の3種類の方法で指定できます。
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略時は現在の値]<BR>
+      次に表示する文字の左の位置を指定。<BR>
+      あとはTOPと同じ
+
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略時は"SCREEN"]<BR>
+      TOPやLEFTで指定した位置をどこから数えるか指定する。<BR>
+      NAMEには現在"SCREEN"と"STAGE"が指定できる。
+
+<P>
+
+      同時に保存できるのは20個までできます。<BR>
+      20回以上連続でSAVEを使うと古いデータから捨てていきます。<BR>
+      
+
+   </OL>
+
+
+例<BR>
+
+   <OL>
+      <FONT COLOR=green><B><LI>
+&lt;POSITION TOP="50" LEFT="50"&gt;<BR>
+≪TOP="50" LEFT="50"≫<BR>
+&lt;POSITION TOP="+50"&gt;<BR>
+≪TOP="+50"≫<BR>
+&lt;POSITION TOP="50%" LEFT="50%"&gt;<BR>
+≪TOP="50%" LEFT="50%"≫
+
+      </B></FONT><BR>
+
+<table width="500" height="300"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+<TT>
+○→→<BR>
+　　↓<BR>
+　　○≪TOP="50" LEFT="50"≫×<BR>
+　　　　　　　　　　　　　　↓<BR>
+　　　　　　　　　　　　　　×≪TOP="+50"≫
+<BR>
+<BR>
+<BR>
+　　　　　　　　　　　　◇≪TOP="50%" LEFT="50%"≫
+</TT>
+</td></tr></table>
+<BR>
+TOP="50" LEFT="50"と数字を指定すると画面の左上から縦横<BR>
+それぞれ50画素離れた位置の文字を表示します。<BR>
+TOP="+50"と書くと最後に表示した位置から<BR>
+50画素下に文字を表示します。
+TOP="50%" LEFT="50%"
+と書くと<a href="init.html#screen">SCREEN</a>タグで指定した範囲で縦と横が50%の位置に文字を表示します。
+
+
+<P>
+<P>
+      <FONT COLOR=green><B><LI>
+一行目&lt;NL&gt;<BR>
+&lt;CLIP&gt;<BR>
+&lt;POSITION TOP="50%" LEFT="50%"&gt;<BR>
+二行目&lt;NL&gt;<BR>
+&lt;/CLIP&gt;<BR>
+三行目
+
+
+      </B></FONT><BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+<TT>
+１行目<BR>
+３行目<BR>
+<BR>
+<BR>
+<BR>
+　　　　　　　　　　　　２行目<BR>
+<BR>
+
+<BR>
+<BR>
+</TT>
+</td></tr></table>
+<BR>
+と表示される。<BR>
+「一行目」と表示して改行した後、&lt;CLIP&gt;で現在の文字の表示位置
+を保存する。<BR>
+次にPOSITIONタグで文字の表示位置を上から50%、左から50%に設定する。<BR>
+文字を表示した後に&lt;/CLIP&gt;で保存した位置に戻す。
+
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="indent">
+<H2>INDENTタグ</H2>
+<table border="1"><tr><td>
+字下げをつけます。現在のカーソル位置より前に文字を表示しません。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      &lt;/INDENT&gt;
+      </B></FONT><BR>
+      直前のINDENTタグの効果を消す。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+INDENTタグの使い方<BR>
+
+－－&lt;INDENT&gt;<BR>
+１<BR>
+&lt;INDENT&gt;&lt;NL&gt;<BR>
+インデントタグは重ねて使えます。<BR>
+&lt;/INDENT&gt;&lt;NL&gt;<BR>
+２<BR>
+&lt;INDENT&gt;&lt;NL&gt;<BR>
+インデントタグの効果を消すには&lt;NL&gt;
+&lt;/INDENT&gt;を使ってください。<BR>
+&lt;/INDENT&gt;<BR>
+&lt;/INDENT&gt;&lt;NL&gt;
+－－
+
+      </B></FONT><BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+<TT>
+－－<BR>
+　　１<BR>
+　　　インデントタグは重ねて使えます。<BR>
+　　２<BR>
+　　　インデントタグの効果を消すには<BR>
+　　　&lt;/INDENT&gt;を使ってください。<BR>
+－－<BR>
+</TT>
+</td></tr></table>
+<BR>
+と表示される。
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="b">
+<H2>Bタグ</H2>
+<table border="1"><tr><td>
+文字を太字にします。
+<hr>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      &lt;/B&gt;
+      </B></FONT><BR>
+      タグの効果を中止する。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      このタグで囲んだ部分は　&lt;B&gt;太字&lt;/B&gt;　になります。
+      </B></FONT><BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+      このタグで囲んだ部分は　<B>太字</B>　になります。
+</td></tr></table>
+
+
+と表示される。
+</td></tr></table>
+<!---------------------------------------------------->
+<!---------------------------------------------------->
+<a name="i">
+<H2>Iタグ</H2>
+<table border="1"><tr><td>
+文字を斜体にします。
+<hr>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      &lt;/I&gt;
+      </B></FONT><BR>
+      タグの効果を中止する。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      このタグで囲んだ部分は　&lt;I&gt;斜体&lt;/I&gt;　になります。
+      </B></FONT><BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+      このタグで囲んだ部分は　<I>斜体</I>　になります。
+</td></tr></table>
+と表示される。
+</td></tr></table>
+<!---------------------------------------------------->
+<!---------------------------------------------------->
+<a name="u">
+<H2>Uタグ</H2>
+<table border="1"><tr><td>
+文字に下線を引きます。
+<hr>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      &lt;/U&gt;
+      </B></FONT><BR>
+      タグの効果を中止する。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      このタグで囲んだ部分は　&lt;U&gt;下線&lt;/U&gt;　が引かれます。
+      </B></FONT><BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+      このタグで囲んだ部分は　<U>下線</U>　が引かれます。
+</td></tr></table>
+と表示される。
+</td></tr></table>
+<!---------------------------------------------------->
+<!---------------------------------------------------->
+<a name="s">
+<H2>Sタグ</H2>
+<table border="1"><tr><td>
+文字に打ち消し線を打ちます。
+<hr>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      &lt;/S&gt;
+      </B></FONT><BR>
+      タグの効果を中止する。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      このタグで囲んだ部分は　&lt;S&gt;打ち消し線&lt;/S&gt;　が打たれます。
+      </B></FONT><BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+      このタグで囲んだ部分は　<S>打ち消し線</S>　が打たれます。
+</td></tr></table>
+
+
+と表示される。
+</td></tr></table>
+<!---------------------------------------------------->
+<!---------------------------------------------------->
+<a name="shadow">
+<H2>SHADOWタグ</H2>
+<table border="1"><tr><td>
+文字に影を付けます。<BR>
+デフォルトでONになってます。
+<hr>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      &lt;/SHADOW&gt;
+      </B></FONT><BR>
+      タグの効果を中止する。
+   </OL>
+
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+</BDDY>
+</HTML>
+

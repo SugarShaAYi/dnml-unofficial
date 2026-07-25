@@ -1,0 +1,253 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>画面に人物を表示させるタグです。ENTER(登場),ACT(画像の表示),EXIT(退場)が一組になっています。</h3>
+<a href="#enter">ENTER(登場)</a><BR>
+<a href="#act">ACT(画像の表示)</a><BR>
+<a href="#exit">EXIT(退場)</a><BR>
+<hr>
+<!---------------------------------------------------->
+<a name="enter">
+<H2>ENTERタグ</H2>
+<table border="1"><tr><td>
+人物を登場させます。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略不可]<BR>
+      登場人物に名前を付けます。適当に好きな名前を付けてください。<BR>
+      以後のACTタグ,EXITタグでこの名前を使います。<BR>
+      <FONT COLOR=purple><B><LI>
+      ALIGN
+      </B></FONT>[省略時の値は"CENTER"]<BR>
+      登場人物の立つ位置を指定します。<BR>
+   <FONT COLOR=maroon><b>CENTER</b></FONT>(画面中央),<FONT COLOR=maroon><b>LEFT</b></FONT>(左),<FONT COLOR=maroon><b>RIGHT</b></FONT>(右),
+   <FONT COLOR=maroon><b>LEFTSIDE</b></FONT>(左端にくっつける),<FONT COLOR=maroon><b>RIGHTSIDE</b></FONT>(右端にくっつける)が指定できます。<BR>
+<P>
+      <FONT COLOR=purple><B><LI>
+      VALIGN
+      </B></FONT>[省略時は"FLOOR"]<BR>
+      登場人物の縦方向の位置を指定する。<BR>
+   <FONT COLOR=maroon><b>ROOF</b></FONT>(画面の上端に付ける),<FONT COLOR=maroon><b>FLOOR</b></FONT>(下端に付ける),<FONT COLOR=maroon><b>TOP</b></FONT>(上),
+   <FONT COLOR=maroon><b>MIDDLE</b></FONT>(中央),<FONT COLOR=maroon><b>BOTTOM</b></FONT>(下)が指定できます。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      EFFECT
+      </B></FONT>[くわしくは<a href="speffect.html#effect">EFFECTキー</a>参照]<BR>
+      効果を付けて人物を表示します。<BR>
+      <a href="speffect.html#effect">EFFECTキー</a>で説明します。<BR>
+      ここで指定したEFFECTはこの人物に対する全てのACTに使われます。
+<P>
+      <FONT COLOR=purple><B><LI>
+      ALPHA
+      </B></FONT>[省略時の値は"100"]<BR>
+      人物を半透明で表示したいときはこのキーを指定します。<BR>
+      0が完全な透明、100がそのまま。<BR>
+      ここで指定した不透明度はこのキャラクタ対する全ての<BR>
+      ACTに影響します。
+<P>
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;ENTER NAME="あかり" ALIGN="CENTER"&gt;
+      </B></FONT><BR>
+      "あかり"という名前のキャラクタを画面の中心に登場させます。
+      まだACT(演技)してないので、画面には何も表示されません。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="act">
+<H2>ACTタグ</H2></a>
+<table border="1"><tr><td>
+ENTER(登場)した人のグラフィックを表示します。<BR>
+標準でBMP画像が読み込めます。それ以外の形式の画像を読み込みたい場合は
+<a href="init.html#plugin">PLUGIN</a>タグを使用してください。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      表示するファイル名を指定。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値は"<a href="all.html#current">CURRENT</a>"]<BR>
+      表示するファイルのあるフォルダを指定。
+
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値は"WAIT"]<BR>
+      "WAIT"だと、タグを実行したら、すぐグラフィックを表示します。<BR>
+      MODEにPASSを指定するとすぐにグラフィックを表示しない。<BR>
+次にACT、BACKGROUND、EXITタグが実行されたときに同時に表示される。
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略時の値はALIGNよりDNMLが決める]<BR>
+      表示するグラフィックの上端の座標を指定。
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略時の値はALIGNよりDNMLが決める]<BR>
+      表示するグラフィックの左端の座標を指定。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略時の値はグラフィックの幅]<BR>
+      表示するグラフィックの幅を指定。
+      "100"の様に直接画像の幅を指定する事と<BR>
+      (この場合、画像の幅は100[画素]となる)<BR>
+      "200%"の様に割合でも指定できる。<BR>
+      (この場合、画像の幅は元の大きさの2倍)
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略時の値はグラフィックの高さ]<BR>
+      表示するグラフィックの高さを指定。<BR>
+      指定の仕方はWIDTHと同じ。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      EFFECT
+      </B></FONT>[くわしくは<a href="speffect.html#effect">EFFECTキー</a>参照]<BR>
+      効果を付けて人物を表示します。<BR>
+      <a href="speffect.html#effect">EFFECTキー</a>で説明します。<BR>
+
+
+      <FONT COLOR=purple><B><LI>
+      ALPHA
+      </B></FONT>[省略時はENTERで指定した値]<BR>
+      人物を半透明で表示したいときはこのキーを指定します。<BR>
+      0が完全な透明、100がそのまま。
+<P>
+      <B>ファイル名で指定すると</B><BR>
+      その画像がアルファチャンネルとなる。<BR>
+      (ALPHAで指定した画像はモノクロに変換され、<BR>
+      それがウィンドウの<BR>
+      不透明度(いわゆるアルファチャンネル)となります。<BR>
+      ALPHAで指定した画像の黒い部分は透明になります。<BR>
+      白い部分は不透明で普通に表示されます。<BR>
+      形式はDNMLで読める形なら何でもかまいません)<BR>
+      <FONT COLOR=purple><B><LI>
+      SUBFOLDER
+      </B></FONT>[省略時の値はFOLDERと同じ]<BR>
+      ALPHAで指定したファイルのあるフォルダを指定。<BR>
+<P>
+
+      <FONT COLOR=purple><B><LI>
+      TRANSPARENT
+      </B></FONT>[省略時の値はAUTO]<BR>
+      画像の透明色を指定する。<BR>
+      　　<B><FONT COLOR=red>NONE</FONT></B><BR>
+      　　　　透明色なし<BR>
+      　　<B><FONT COLOR=red>AUTO</FONT></B><BR>
+      　　　　画像の一番左上の点とRGBで(255,0,255)の色を透明色にする。<BR>
+      　　　　16色画像の場合は右上の点を透明色とします。(痕対策)</FONT><BR>
+      　　<B><FONT COLOR=red>"#ffffff"の様にHTML式で色を指定</FONT></B><BR>
+      　　　　その色を透明色にする。
+
+
+      <FONT COLOR=purple><B><LI>
+      PUT
+      </B></FONT>[省略時は<a href="./init.html#space">SPACEタグ</a>の範囲を使う]<BR>
+      人物画像の表情のみ変更したいときなどに使います。<BR>
+      NAMEキーには既に登場している人物の名前を指定します。<BR>
+      通常TOPやLEFTで指定した値は、<a href="./init.html#space">SPACEタグ</a>
+      で指定した範囲にから計算されますが、この属性を指定するとその<BR>
+      人物の画像が表示されている範囲を使います<BR>
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;ACT NAME="あかり" SRC="lvns3dat.pak\C0101.LF2" FOLDER="LVNS3"&gt;
+      </B></FONT><BR>
+      ENTERで登録した位置にC0101.LF2を表示します。<BR>
+      <FONT COLOR=green><B><LI>
+      &lt;ACT NAME="マルチ" SRC="LVNS3DAT.PAK\c0619.lf2" FOLDER="LVNS3" TOP="136" LEFT="403"&gt;
+      </B></FONT><BR>
+      でマルチとエアホッケーできます(笑)。
+      <FONT COLOR=green><B><LI>
+      &lt;ACT NAME="タイトル" SRC="title.bmp" TRANSPARENT="NONE"&gt;
+      </B></FONT><BR>
+      絵を透明色なしでそのまま表示
+
+      <FONT COLOR=green><B><LI>
+      &lt;ACT NAME="あかり" SRC="lvns3dat.pak\C0101.LF2" FOLDER="LVNS3" MODE="PASS"&gt;<BR>
+      &lt;ACT NAME="志保" SRC="lvns3dat.pak\C0201.LF2" FOLDER="LVNS3"&gt;
+      </B></FONT><BR>
+      一行目にはMODE="PASS"が指定してあるので、すぐには表示されずに
+      二人の人物が同時に表示されます。<BR>
+
+      <FONT COLOR=green><B><LI>
+      &lt;ACT NAME="表情" SRC="笑顔.bmp" PUT="ヒロイン"&gt;
+      </B></FONT><BR>
+      笑顔.bmpという画像が既に"ヒロイン"という名前の人物の上に表示されます。
+      <BR>
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+
+<!---------------------------------------------------->
+<a name="exit">
+<H2>EXITタグ</H2>
+<table border="1"><tr><td>
+人物の退場。画面から人が消えます。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略時の値は"ALL"]<BR>
+      退場させたい人物のなまえを指定させます。<BR>
+      ALLで全員退場。
+
+
+      <FONT COLOR=purple><B><LI>
+      EFFECT
+      </B></FONT>[くわしくは<a href="speffect.html#effect">EFFECTキー</a>参照]<BR>
+      効果を付けて人物を表示します。<BR>
+      <a href="speffect.html#effect">EFFECTキー</a>で説明します。<BR>
+      ここで指定したEFFECTはこの人物に対する全てのACTに使われます。
+
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値はすぐに退場]<BR>
+      MODEにPASSを指定するとすぐに退場しない。<BR>
+次にACT、BACKGROUND、EXITタグが実行されたときに同時に退場します。
+
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;EXIT NAME="あかり"&gt;
+      </B></FONT><BR>
+      "あかり"という名前で登録したキャラを退場させます。
+      <FONT COLOR=green><B><LI>
+      &lt;EXIT NAME="ALL"&gt;
+      </B></FONT><BR>
+      全員退場。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+
+</BDDY>
+</HTML>
+

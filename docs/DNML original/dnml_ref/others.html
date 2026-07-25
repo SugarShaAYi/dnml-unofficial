@@ -1,0 +1,429 @@
+<HTML>
+<HEAD>
+
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>そのほかのタグです。</h3>
+<a href="#command">COMMAND(Windowsコマンドの実行)</a><BR>
+<a href="#bookmark">BOOKMARK(しおりの作成)</a><BR>
+<a href="#title">TITLE(作品タイトルの記入)</a><BR>
+<a href="#cover">COVER(作者などの記入)</a><BR>
+<a href="#end">END(ブックの終了)</a><BR>
+<a href="#snap">SNAP(画像の保存)</a><BR>
+<a href="#trap">TRAP(スキップの停止)</a><BR>
+<a href="#excl">!(コメント行)</a><BR>
+<a href="#number">#(コメント範囲)</a><BR>
+<hr>
+
+
+<!---------------------------------------------------->
+<a name="command">
+<H2>COMMANDタグ</H2>
+<table border="1"><tr><td>
+  外部プログラムを実行します。<BR>
+  実行ファイル以外が指定された場合は、その拡張子に関連づけられた
+プログラムで開きます。<BR>
+"http://"で始まる文字が指定されたときは、そのURLを開きます。<BR>
+
+このタグはDNMLブラウザの[外部プログラムの起動を許可]のチェックボックスを
+OFFにする事で無効になります。
+<hr>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      実行するコマンド。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値は"<a href="all.html#current">CURRENT</a>"]<BR>
+      コマンドを実行するときのカレントフォルダを指定。
+
+   </OL>
+
+</UL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;COMMAND SRC="notepad.exe readme.txt"&gt;</B></FONT><BR>
+      いま読み込んでいるDNMLブックと同じフォルダにあるreadme.txtを
+      メモ帳で開く
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;COMMAND SRC="readme.html"&gt;</B></FONT><BR>
+      いま読み込んでいるDNMLブックと同じフォルダにあるreadme.htmlを
+拡張子htmlに関連づけられたプログラムで開きます。
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;COMMAND SRC="http://member.nifty.ne.jp/karin/" &gt;</B></FONT><BR>
+      "http://member.nifty.ne.jp/karin/"をWWWブラウザで開きます。
+
+<P>
+<!--
+      <FONT COLOR=green><B><LI>
+      &lt;COMMAND SRC="winamp.exe.lnk believe.mp3"&gt;</B></FONT><BR>
+      いま読み込んでいるDNMLブックと同じフォルダにあるwinamp.exeへの
+      ショートカットを使って、このフォルダにあるbelieve.mp3を再生します。
+<BR>
+      <FONT COLOR=red>ショートカットにはエクスプローラからは見えませんが拡張子".lnk"
+      がついています。</FONT><BR>
+      再生するファイルをFOLDERキーで指定したフォルダからの相対パスで
+      指定したいときには下図の用に<FONT COLOR=red>作業フォルダに"."を指定</FONT>してください。<BR>
+      
+      そうでないとwinamp.exeからの相対パスを指定しなくてはなりません。<BR>
+      この画面はwinamp.exeへのショートカットを右クリックしてプロパティーを
+      選ぶと表示されます。<BR>
+      
+      <img src="./image/shortcut.gif">
+-->
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+<!---------------------------------------------------->
+<a name="bookmark">
+<H2>BOOKMARKタグ</H2>
+<table border="1"><tr><td>
+しおり(セーブ)を作成をする。<BR>
+<P>
+「かまいたちの夜」や「街」のようなオートセーブを使いたい時などに
+使って下さい。<BR>
+<P>
+それ以外の時はこのタグを使わなくてもDNMLブラウザが
+自動的にしおりを作成します。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      キーを指定しない
+      </B></FONT><BR>
+      キーを指定せずに&lt;BOOKMARK&gt;とタグだけを書いた場合は
+      現在のしおりに強制セーブします。<BR>
+      <B>セーブされるのは以前に&lt;P&gt;タグを使った時です。</B>
+
+<P>
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値はMANUAL]<BR>
+      しおりのタイプを指定します。
+<P>
+      <B>AUTO</B>を指定すると&lt;P&gt;タグがある度に強制セーブします。さらにユーザーはセーブ出来なくなります。<BR>
+      (「かまいたちの夜」「街」などチュンソフト式)<BR>
+      
+
+<P>
+      <B>SEMIAUTO</B>を指定するとユーザーはセーブ出来なくなります。<BR>
+      改頁時にもサーブされませんので、DNML作者が&lt;BOOKMARK&gt;タグ
+      を使ってセーブしてやる必要があります。<BR>
+      章の始めやエンディングのみセーブできるようにしたいなど、しおりを
+      DNML作者が管理したいときに使います。
+
+
+<P>
+      <B>MANUAL</B>を指定すると、&lt;BOOKMARK&gt;タグをつかって強制セーブするか
+      ユーザーがセーブを選択したときにセーブされます。<BR>
+      ユーザーは自由にセーブ出来ます。(「痕」「To Heart」などLeaf式)<BR>
+<P>
+<P>
+<P>
+      <B>TOPPAGE</B>
+      以上三つのMODEキーの値はしおりの動作を指定する物でしたが、
+      これは違う物です。<BR>
+
+      MODEキーにTOPPAGEを指定すると最初のページにしおりを戻してセーブします。<BR>
+      見たエンディングによってシナリオの変化するゲームには最後に
+      これを使ってください。
+<P>
+      <FONT COLOR=purple><B><LI>
+      ALT
+      </B></FONT>[省略時の値は前回の値]<BR>
+      セーブデータへのコメントを指定。
+      しおりを選択するウィンドウで<BR>
+      <I>[しおり１ プロローグ]</I><BR>
+      <I>[しおり２ 第一章]</I><BR>
+      の様にしおりのコメントをつけたい時に使います。
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI><BR>
+      &lt;BOOKMARK ALT="プロローグ"&gt;<BR>
+          ・<BR>
+          ・プロローグの内容<BR>
+          ・<BR>
+      &lt;BOOKMARK ALT="第一章"&gt;<BR>
+          ・<BR>
+          ・第一章の内容<BR>
+          ・<BR>
+      </FONT></b><BR>
+      プロローブの部分でセーブするとしおりの選択画面で<BR>
+      <I>[しおり１ プロローグ]</I><BR>
+      と表示される。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="title">
+<H2>TITLEタグ</H2>
+<table border="1"><tr><td>
+ウィンドウのタイトルに指定された文字を表示します。
+<hr>
+
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      ALT
+      </B></FONT>[省略不可]<BR>
+      ウィンドウのタイトルに指定された文字を表示。
+
+   </OL>
+
+</UL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;TITLE ALT="柏木家の食卓2"&gt;
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="cover">
+<H2>COVERタグ</H2>
+<table border="1"><tr><td>
+　このタグは、物語には一切影響しません。<BR>
+　作品を整理する時などに重要なので、ブックの最初の方になるべく書いて下さい。
+<hr>
+
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      AUTHOR
+      </B></FONT>[省略可能]<BR>
+      作者の名前を書く。
+
+      <FONT COLOR=purple><B><LI>
+      TITLE
+      </B></FONT>[省略可能]<BR>
+      作品のタイトルを書く。
+
+      <FONT COLOR=purple><B><LI>
+      MAIL
+      </B></FONT>[省略可能]<BR>
+      e-mailアドレスを書く。
+
+      <FONT COLOR=purple><B><LI>
+      HOMEPAGE
+      </B></FONT>[省略可能]<BR>
+      ホームページのアドレスを書く。
+
+      <FONT COLOR=purple><B><LI>
+      DATE
+      </B></FONT>[省略可能]<BR>
+      書いた日付を書く。"年/月/日"の順番で書きます。
+
+      <FONT COLOR=purple><B><LI>
+      COMMENT
+      </B></FONT>[省略可能]<BR>
+      コメントを書く。
+
+      <FONT COLOR=purple><B><LI>
+      GENRE
+      </B></FONT>[省略可能]<BR>
+      作品のジャンルを書く。二次創作の場合は、
+      ここにACTタグのFOLDERキーなどで使う<a href="all.html#alias">ALIAS</a>の名前を書いてください。
+(例えはToHeartは"LVNS3"、ONE～輝く季節へ～は"ONE"、Kanonは"KANON"となります)
+
+   </OL>
+
+</UL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+&lt;COVER<BR>
+ TITLE    = "Kanonサンプル"<BR>
+ AUTHOR   = "花梨"<BR>
+ MAIL     = "karin@paw.office.ne.jp"<BR>
+ HP       = "http://www.vector.co.jp/authors/VA015183/"<BR>
+ DATE     = "1999/6/13"<BR>
+ GENRE    = "KANON"<BR>
+ COMMENT  = "DNMLのサンプルファイルです。すべてのDNMLにはなるべくこの形式でヘッダを付けてください"<BR>
+ &gt;<BR>
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="end">
+<H2>ENDタグ</H2>
+<table border="1"><tr><td>
+DNMLの実行を終了します。<BR>
+このタグがあると、まだ続きが書いてあっても中止します。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      ALT
+      </B></FONT>[省略時の値は"おしまい"]<BR>
+      終了時に出でるウィンドウのメッセージを指定する。
+
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値はなにもしない]<BR>
+      TOPを指定すると、しおりを一番最初のページまで戻します。<BR>
+      
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+&lt;A NAME="エンド１"&gt;<BR>
+   ・<BR>
+   ・<BR>
+&lt;END ALT="ありがとうございました。感想など有りましたらkarin@shiho-fan.club.or.jpまで"&gt;<BR>
+
+&lt;A NAME="エンド２"&gt;<BR>
+   ・<BR>
+      </B></FONT><BR>
+以上のDNMLを実行すると<END>タグのある位置で終了し、
+<A NAME="エンド２">
+以下のDNMLは実行しません。
+終了したあと、左クリックすると「ありがとうご・・・・」の
+メッセージを表示します。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="snap">
+<H2>SNAPタグ</H2>
+<table border="1"><tr><td>
+画面をセーブします。<BR>
+画像のサムネイルなどを作成したいときに使います。
+
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略時の値はグラフィックの幅]<BR>
+      高さが指定してあるときには縦横の比が同じになるようにする]<BR>
+      画像の幅を指定。
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略時の値はグラフィックの高さ<BR>
+      幅が指定してあるときには縦横の比が同じになるようにする]<BR>
+      画像の幅を指定。
+
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略時の値は画面全体]<BR>
+      セーブする人を指定する。<BR>
+      この属性が指定していないときには画面全体を保存する。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略時の値は元のファイル名]<BR>
+      セーブするファイル名<BR>
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値は"<a href="all.html#current">CURRENT</a>"]<BR>
+      セーブするファイルを置くフォルダ。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値はBMP]<BR>
+      セーブするファイルの形式。<BR>
+      BMPとJPEGが指定できる。<BR>
+
+
+   </OL>
+例<BR>
+   <OL>
+    <FONT COLOR=green><B><LI>
+&lt;ACT NAME="芹香" SRC="LVNS3DAT.PAK\C0202.LF2" FOLDER="LVNS3"&gt;<BR>
+&lt;SNAP NAME="芹香" &gt;<BR>
+&lt;!-- 現在のフォルダに"C0202.BMP"という名前でセーブ --&gt;<BR>
+&lt;SNAP NAME="芹香" MODE="JPEG" &gt;<BR>
+&lt;!-- 現在のフォルダに"C0202.JPG"という名前でセーブ --&gt;<BR>
+&lt;SNAP NAME="芹香" SRC="芹香.JPG"MODE="JPEG" WIDTH="70"&gt;<BR>
+&lt;!-- 現在のフォルダに幅が70[画素]、"芹香.JPG"という名前でセーブ --&gt;<BR>
+      </B></FONT><BR>
+
+
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+
+
+<!---------------------------------------------------->
+<a name="trap">
+<H2>TRAPタグ</H2>
+<table border="1"><tr><td>
+物語には影響しない。<BR>
+次の選択肢まで進めるを選択した時、
+このタグがあると止まる。<BR>
+<hr>
+</UL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;TRAP&gt;
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="excl">
+<H2>!タグ</H2>
+<table border="1"><tr><td>
+一行コメント、改行があるまでコメントとして扱われ実行されない。
+<hr>
+</UL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;!
+      この部分は実行されません。
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="number">
+<H2>#タグ</H2>
+<table border="1"><tr><td>
+複数行コメント、#>があるまでコメントとして扱われ実行されない。
+<hr>
+</UL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;#<BR>
+      この部分は実行されません。<BR>
+      必ず閉じてください。<BR>
+      #&gt;<BR>
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+</BDDY>
+</HTML>
+

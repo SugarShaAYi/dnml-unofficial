@@ -1,0 +1,201 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>主人公の名前などを読者に入力してもらいます。<BR>HTML風のボタンやエディットボックスを表示します。</h3>
+<a href="#form">FORM(入力の開始)</a><BR>
+<a href="#input">INPUT(ボタンなどの表示)</a><BR>
+<hr>
+<!---------------------------------------------------->
+<a name="form">
+<H2>FORM</H2>
+<table border="1"><tr><td>
+HTMLのFORMタグと同等の機能を提供する。<BR>
+<a href="branch.html#answer">カード</a>の内容を読者が入力できる<BR>
+これで読者が主人公の名前つけたりできる。<BR>
+&lt;FORM&gt;と&lt;/FORM&gt;で囲まれた部分にINPUTタグを置いて<BR>
+ボタンやエディットボックスを配置できます。
+<hr>
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      &lt;/FORM&gt;
+      </B></FONT>[絶対に省略不可]<BR>
+      FORMタグを使ったら必ず&lt;/FORM&gt;で閉じてください。<BR>
+
+   </OL>
+</td></tr></table>
+
+<!---------------------------------------------------->
+<a name="input">
+<H2>INPUT</H2>
+<table border="1"><tr><td>
+HTMLのINPUTと似た機能を提供する。<BR>
+ALIASやANSWERの内容を読者が入力できる。<BR>
+読者に主人公の名前を付けさせたい時などに使ってください。<BR>
+使い方はHTMLと同じです。<BR>
+
+<P><FONT COLOR=red><B>必ず一つ以上のSUBMIT(決定ボタン)を使ってください。</B></FONT><BR>
+
+<hr>
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      TYPE
+      </B></FONT>[省略時の値はTEXT]<BR>
+      フォームの種類を指定<BR>
+      "TEXT"(文字を入力),<BR>
+      "CHECKBOX"(ON,OFFを指定できるボタン)<BR>
+      "RADIO"(一つだけ選択できるボタン)<BR>
+      "SUBMIT"(入力を終わる)<BR>
+      "RESET"(入力した内容をリセット)<BR>
+      が使用できる。
+
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[SUBMIT,RESET以外は省略不可]<BR>
+      入力結果を受け取るカードの名前を指定する。
+
+      <FONT COLOR=purple><B><LI>
+      VALUE
+      </B></FONT>[省略時の値はなし]<BR>
+
+<table border="1"> <tr><td>
+      <B>TEXTの場合は</B><BR>
+      最初から表示される文字。<BR>
+      VALUEが省略され、NAMEで指定されたカードが既に存在した場合には<BR>
+      カードの内容が表示される。
+</td></tr></table>
+<P>
+<table border="1"> <tr><td>
+      <B>RADIO,CHECKBOXの場合は</B><BR>
+      それがONになった時、カードに入る文字。
+</td></tr></table>
+<P>
+<table border="1"> <tr><td>
+      <B>SUBMIT,RESETの場合は</B><BR>
+      ボタンに表示される文字。<BR>
+SUBMITが押されたときNAMEキーがある場合はそのカードにもこの値が入る。<BR>
+複数のSUBMITをおいた場合には、この値を調べればどのボタンが押されたか
+わかる。
+</td></tr></table>
+
+
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略時はDNMLが適当に決める]<BR>
+      フォームの上からの位置を指定する<BR>
+      単位は画面上からの画素数
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略時はDNMLが適当に決める]<BR>
+      フォームの左からの位置を指定する<BR>
+      単位は画面上からの画素数
+
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略時はDNMLが適当に決める]<BR>
+      フォームの幅を直接指定<BR>
+      単位は画素
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略時はDNMLが適当に決める]<BR>
+      フォームの高さを直接指定
+
+<P>
+<P>
+   <OL>
+      <FONT COLOR=green><B><LI>
+&lt;FORM&gt;<BR>
+名字<BR>
+&lt;INPUT TYPE="TEXT" NAME="名字"   VALUE="越前"&gt;&lt;NL&gt;<BR>
+名前<BR>
+&lt;INPUT TYPE="TEXT" NAME="名前"   VALUE="康介"&gt;&lt;NL&gt;<BR>
+どの扉を開ける？&gt;&lt;NL&gt;<BR>
+&lt;INPUT TYPE="RADIO" NAME="色" VALUE="赤"&gt;赤<BR>
+&lt;INPUT TYPE="RADIO" NAME="色" VALUE="青"&gt;青<BR>
+&lt;INPUT TYPE="RADIO" NAME="色" VALUE="緑"&gt;緑&lt;NL&gt;<BR>
+&lt;INPUT TYPE="CHECKBOX" NAME="コードネーム" VALUE="付ける"&gt;コードネームを付ける&lt;NL&gt;<BR>
+&lt;INPUT TYPE="SUBMIT" VALUE="決定"&gt;&lt;NL&gt;<BR>
+&lt;INPUT TYPE="RESET" VALUE="リセット"&gt;&lt;NL&gt;<BR>
+&lt;/FORM&gt;<BR>
+
+      </B></FONT><BR>
+<HR>
+と書くと以下のように表示される。<BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+<FORM>
+名字　　<INPUT TYPE="TEXT" NAME="名字"   VALUE="越前"><BR>
+名前　　<INPUT TYPE="TEXT" NAME="名前"   VALUE="康介"><BR>
+どの扉を開ける？<BR>
+<INPUT TYPE="RADIO" NAME="色" VALUE="赤">赤
+<INPUT TYPE="RADIO" NAME="色" VALUE="青">青
+<INPUT TYPE="RADIO" NAME="色" VALUE="緑">緑<BR>
+<INPUT TYPE="CHECKBOX" NAME="コードネーム" VALUE="付ける">
+コードネームを付ける<BR>
+<INPUT TYPE="SUBMIT" VALUE="決定"><BR>
+<INPUT TYPE="RESET" VALUE="リセット"><BR>
+</FORM>
+</td></tr></table>
+<HR>
+
+INPUTタグではますTYPEキーで、フォームの種類を指定します。<BR>
+TYPE="TEXT"で文字を入力できます。<BR>
+NAMEには入力された文字をかくカードの名前を指定します。<BR>
+ここではNAME="名字"となっているので<<名字>>と書くと、読者の
+入力した名字が表示されます。<BR>
+VALUEには最初から表示される文字を書きます。
+<P>
+TYPE="RADIO"でラジオボタンが使えます。<BR>
+これは同じNAMEのボタンのうち、どれか一つだけが選択されます。<BR>
+NAMEで指定されたカードには最後に選ばれていたラジオボタンのVALUEが
+入ります。<BR>
+<P>
+TYPE="CHECKBOX"でON,OFFの状態を選択できるボタンを表示します。<BR>
+ONであればNAMEで指定したカードにVALUEで指定した文字が入ります。<BR>
+<P>
+TYPE="RESET"でリセットボタンを表示します。<BR>
+VALUEにはボタンに表示される文字を指定します。<BR>
+このボタンを押すと、入力された値を全て初期値に戻します。
+<P>
+TYPE="SUBMIT"で決定ボタンを表示します。<BR>
+VALUEにはボタンに表示される文字を指定します。<BR>
+このボタンは必ず一つ以上は位置してください。<BR>
+そうしないと、次に進めなくなります。<BR>
+
+<P>
+<P>
+<LI>
+      入力の使い方<BR>
+      <FONT COLOR=green><B>
+
+そいつの名前は&lt;&lt;名字&gt;&gt;&lt;&lt;名前&gt;&gt;&lt;NL&gt;<BR>
+せっかくだからこの&lt;&lt;色&gt;&gt;の扉を開くぜ&lt;NL&gt;<BR>
+&lt;EVENT ANSWER="(コードネーム?[付ける])"&gt;<BR>
+コードネームはコンバット&lt;&lt;名字&gt;&gt;&lt;NL&gt;<BR>
+&lt;/EVENT&gt;<BR>
+      </B></FONT><BR>
+以上のように書くと<BR>
+<B>そいつの名前は越前康介<BR>
+せっかくだからこの赤の扉を開くぜ<BR>
+コードネームはコンバット越前<BR>
+</B>
+と表示される。<BR>
+それぞれ名前や色などは読者の選択したものが表示されます。<BR>
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+
+</BDDY>
+</HTML>
+
+

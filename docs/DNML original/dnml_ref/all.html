@@ -1,0 +1,138 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis"></HEAD>
+<BODY bgcolor="#ffffff">
+<h3>知っていると便利なタグです。</h3>
+<a href="#alias">ALIAS(解りやすい別名をつける)</a><BR>
+<a href="#write">WRITE(カードやエイリアスの書き出し)</a><BR>
+<a href="#include">INCLUDE(他のファイルを張り付ける)</a><BR>
+
+
+<hr>
+<!---------------------------------------------------->
+<a name="alias">
+<H2>ALIASタグ</H2>
+<table border="1"><tr><td>
+単語に解りやすい別名をつけます。
+  <a href="first.html">値の中</a>にのみ有効です。
+<BR>
+別名を付けたときに、その元を表示したいときには
+<a href="#write">WRITEタグ</a>
+を使ってください。
+
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      置き換えられる元の名前。
+      <FONT COLOR=purple><B><LI>
+      DEST
+      </B></FONT>[省略不可]<BR>
+      置き換えられる先の名前。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;ALIAS SRC="オルゴール" DEST="10.CDA"&gt;
+      </B></FONT><BR>
+      オルゴールの音がCDの10曲目に入っているとします。<BR>
+      BGMタグでCDの10曲目をならすには"10.CDA"としてしなければなりませんが、
+      "10.CDA"にもっと解りやすく"オルゴール"という別名を付けられます。<BR>
+      これにより<BR>
+      &lt;BGM SRC="10.CDA"&gt;<BR>
+      と書くかわりに<BR>
+      &lt;BGM SRC="オルゴール"&gt;<BR>
+      とかけるようになります。
+<P>
+  最初からで以下の二つのエイリアスが定義されています。<BR>
+<a name="player">
+   <B><FONT COLOR=red>PLAYER</FONT></B>     DNML.EXEのあるフォルダ名<BR>
+<a name="current">
+   <FONT COLOR=red><B>CURRENT</B></FONT>  今読み込んでいるDNMLのあるフォルダ名<BR>
+               グラフィックのファイル名などでFOLDERを省略すると
+               このフォルダから読み込みます。
+<P>
+<B><FONT COLOR=green>&lt;INCLUDE SRC="環境設定.dnml" FOLDER="PLAYER"&gt;</FONT><BR></B>
+と書いておくと、以下のエイリアスが定義されます。
+<P>
+<B><FONT COLOR=red>LVNS1</FONT></B>雫のインストールされているフォルダ名<BR>
+<B><FONT COLOR=red>LVNS2</FONT></B>痕のインストールされているフォルダ名<BR>
+<B><FONT COLOR=red>LVNS3</FONT></B>To Heartのインストールされているフォルダ名<BR>
+<B><FONT COLOR=red>WA</FONT></B>White Albumのインストールされているフォルダ名<BR>
+<B><FONT COLOR=red>ONE</FONT></B>ONEのインストールされているフォルダ名<BR>
+<B><FONT COLOR=red>ATLACH</FONT></B>アトラク＝ナクアのインストールされているフォルダ名<BR>
+
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+<!---------------------------------------------------->
+<a name="write">
+<H2>WRITEタグ</H2>
+<table border="1"><tr><td>
+<a href="all.html#alias">ALIAS</a>の内容や
+<a href="branch.html#answer">カード</a>の数字を表示します。<BR>
+同じ名前のカードとALIASが有った場合はカード優先です。
+<hr>
+</UL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;ALIAS SRC="主人公" DEST="浩之"&gt;<BR>
+      &lt;WRITE SRC="主人公"&gt;ちゃん
+      </B></FONT><BR>
+      「浩之ちゃん」と表示される。
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;QUESTION ANSWER="(サイコロ=((@5)+1)"&gt;<BR>
+      &lt;WRITE SRC="サイコロ"&gt;
+      </B></FONT><BR>
+      1～6迄の数字が表示される。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="include">
+<H2>INCLUDEタグ</H2>
+<table border="1"><tr><td>
+他のファイルの内容を張り付けます。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      読み込むファイル名を指定。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値は"<a href="#current">CURRENT</a>"]<BR>
+      読み込むファイルのあるフォルダを指定。
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;INCLUDE SRC="ToHeart\テンプレート.dnml" FOLDER="PLAYER"&gt;
+      </B></FONT><BR>
+      これで「ToHeart\テンプレート.dhml」に書いてある
+      内容がここに書いてあるのと同じになる。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+</BDDY>
+</HTML>
+

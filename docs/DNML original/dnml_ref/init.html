@@ -1,0 +1,500 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>初期設定です。<BR>
+二次創作の作品を作るときはここを見る必要は必要はありません。<BR>
+オリジナル作品を作るときでも、絶対必要なタグはSTAGEのみです。<BR>
+他は全て省略できます。<BR>
+STAGE以外は物語の途中でも変更できます。<BR></H3>
+<a href="#stage">STAGE(画面の大きさ)</a><BR>
+<a href="#screen">SCREEN(文字の表示される範囲)</a><BR>
+<a href="#space">SPACE(人物の表示される範囲)</a><BR>
+<a href="#window">WINDOW(文字を表示するウィンドウの画像を指定する)</a><BR>
+<a href="#plugin">PLUGIN(画像読み込み用Susie Pluinを設定)</a><BR>
+<a href="#icon">ICON(クリック待ちのアイコンを指定する)</a><BR>
+<a href="#cursor">CURSOR(マウスカーソルを指定する)</a><BR>
+<hr>
+<!---------------------------------------------------->
+<a name="stage">
+<H2>STAGEタグ</H2>
+<table border="1"><tr><td>
+画面の大きさを設定する。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略不可]<BR>
+      画面の横幅を指定。
+
+      <FONT COLOR=purple><B><LI>
+      HEIGTH
+      </B></FONT>[省略不可]<BR>
+      画面の高さを指定。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;STAGE WIDTHE="640" WIDTH="480"&gt;
+      </B></FONT><BR>
+     画面の大きさを幅640x縦480に設定。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="screen">
+<H2>SCREENタグ</H2>
+<table border="1"><tr><td>
+文字を表示する範囲の大きさを設定
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略不可]<BR>
+      文字を表示する範囲の上端の座標を指定。
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略不可]<BR>
+      文字を表示する範囲の左端の座標を指定。
+
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略不可]<BR>
+      文字を表示する範囲の横幅を指定。
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略不可]<BR>
+      文字を表示する範囲の高さを指定。
+      
+    <FONT COLOR=purple><B><LI>
+      SHUT
+      </B></FONT>[省略時はAUTO]<BR>
+      文字を消す時の条件を指定する。<BR>
+    <table>
+    <tr>
+      <td>AUTO</td><td>人物や背景が変更されるときに文字を消す</td>
+    </tr>
+    <tr>
+      <td>NONE</td><td>常に表示</td>
+    </tr>
+    </table>
+
+   </OL>
+例<BR>
+   <OL>
+
+
+      <FONT COLOR=green><B><LI>
+      &lt;SCREEN TOP="20" LEFT="20" WIDTH="600" HEIGHT="440"&gt;
+      </B></FONT><BR>
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="space">
+<H2>SPACEタグ</H2>
+<table border="1"><tr><td>
+人物を表示する範囲を指定します。<BR>
+「PIA☆キャロットへようこそ！２」や「同級生」の様に<BR>
+人物を画面の上の方に表示するゲームではこのタグを使用します。<BR>
+標準では<a href="init.html#stage">STAGE</a>と同じ大きさになっています。
+<hr>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略時の値は0]<BR>
+      人物を表示する範囲の上端の座標を指定。
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略時の値は0]<BR>
+      人物を表示する範囲の左端の座標を指定。
+
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略不可]<BR>
+      人物を表示する範囲の横幅を指定。
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略不可]<BR>
+      人物を表示する範囲の高さを指定。
+   </OL>
+例<BR>
+   <OL>
+
+
+      <FONT COLOR=green><B><LI>
+      &lt;SPACE TOP="0" LEFT="0" WIDTH="640" HEIGHT="300"&gt;
+      </B></FONT><BR>
+人物の画像は上300[画素]の部分にのみ表示される。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="window">
+<H2>WINDOWタグ</H2>
+<table border="1"><tr><td>
+テキストを表示するためのウィンドウのグラフィックを指定する。<BR>
+ONEやWhite Albumなどウィンドウを表示するゲームにはこのタグを使って
+指定する。<BR>
+  このタグを省略すると、文字を表示する時に画面全体の輝度を落とします。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      グラフィックのファイル名を指定。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値は"<a href="all.html#current">CURRENT</a>"]<BR>
+      ファイルのあるフォルダを指定。
+
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略不可]<BR>
+      ウィンドウの表示位置を指定。次に表示する文字の上端の座標を
+      指定。
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略不可]<BR>
+      ウィンドウの表示位置を指定。次に表示する文字の上端の座標を
+      指定。
+
+
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略時の値はグラフィックの幅]<BR>
+      表示するグラフィックの幅を指定。
+      "100"の様に直接画像の幅を指定する事と<BR>
+      (この場合、画像の幅は100[画素]となる)<BR>
+      "200%"の様に割合でも指定できる。<BR>
+      (この場合、画像の幅は元の大きさの2倍)
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略時の値はグラフィックの高さ]<BR>
+      表示するグラフィックの高さを指定。<BR>
+      指定の仕方はWIDTHと同じ。<BR>
+
+
+      <FONT COLOR=purple><B><LI>
+      EFFECT
+      </B></FONT>[省略時の値は"EF_FADEIN"]<BR>
+      ウィンドウを表示するときに効果を指定します。<BR>
+      詳しくは<A HREF="speffect.html#effect">EFFECTキー</a>を参照して下さい。
+      
+
+
+      <FONT COLOR=purple><B><LI>
+      ALPHA
+      </B></FONT>[省略時は100]<BR>
+      ウィンドウの不透明度を指定する。<BR>
+      <B>数字で指定すると</B><BR>
+      画像全体の不透明度となる。<BR>
+      値は0から100で<BR>      
+      0で完全に透明。<BR>
+      100で透過せずに表示。<BR>      
+
+<P>
+      <B>ファイル名で指定すると</B><BR>
+      その画像がアルファチャンネルとなる。<BR>
+      (ALPHAで指定した画像はモノクロに変換され、<BR>
+      それがウィンドウの<BR>
+      不透明度(いわゆるアルファチャンネル)となります。<BR>
+      ALPHAで指定した画像の黒い部分は透明になります。<BR>
+      白い部分は不透明で普通に表示されます。<BR>
+      灰色の部分は半透明で表示されます。<BR>
+      この画像のFOLDER属性はSRCと共有しますので<BR>
+      Windowの画像ファイルと同じフォルダに置いて下さい。<BR>
+      形式はDNMLで読める形なら何でもかまいません)<BR>
+
+      <FONT COLOR=purple><B><LI>
+      SUBFOLDER
+      </B></FONT>[省略時の値はFOLDERと同じ]<BR>
+      ALPHAで指定したファイルのあるフォルダを指定。<BR>
+<P>
+
+      <FONT COLOR=purple><B><LI>
+      /WINDOW
+      </B></FONT><BR>
+      Windowを使用しない。
+
+      <FONT COLOR=purple><B><LI>
+      全てのキーを省略
+      </B></FONT><BR>
+      文字を表示するときには、画面全体を暗くする(初期値はこれ)
+
+
+      <FONT COLOR=purple><B><LI>
+      SHUT
+      </B></FONT>[省略時はAUTO]<BR>
+      ウィンドウを閉じる時の条件を指定する。<BR>
+    <table>
+    <tr>
+      <td>AUTO</td><td>人物や背景が変更されるときに閉じる</td>
+    </tr>
+    <tr>
+      <td>NONE</td><td>常に表示</td>
+    </tr>
+    </table>
+
+
+      <FONT COLOR=purple><B><LI>
+      TRANSPARENT
+      </B></FONT>[省略時の値はAUTO]<BR>
+      画像の透明色を指定する。<BR>
+      　　<B><FONT COLOR=red>NONE</FONT></B><BR>
+      　　　　透明色なし<BR>
+      　　<B><FONT COLOR=red>AUTO</FONT></B><BR>
+      　　　　画像の一番左上の点とRGBで(255,0,255)の色を透明色にする。<BR>
+      　　<B><FONT COLOR=red>"#ffffff"の様にHTML式で色を指定</FONT></B><BR>
+      　　　　その色を透明色にする。
+
+<P>
+<P>
+<P><BR>
+
+
+
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;WINDOW SRC="ONE\window.bmp" FOLDER="PLAYER" LEFT="30" TOP="400" ALPHA="50"&gt;
+      </B></FONT><BR>
+     文字を表示するウィンドウは"one\window.bmp"とする。<BR>
+     表示位置は画像の左端の座標は30,上端の座標は400とする。<BR>
+     不透明度50の半透明で表示する。
+
+      <FONT COLOR=green><B><LI>
+      &lt;/WINDOW&gt;
+      </B></FONT><BR>
+      　Windowを使用しない。
+      <FONT COLOR=green><B><LI>
+      &lt;WINDOW&gt;
+      </B></FONT><BR>
+      　文字を表示するときは画面全体を暗くする。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+
+<!---------------------------------------------------->
+<a name="plugin">
+<H2>PLUGINタグ</H2>
+<table border="1"><tr><td>
+グラフィックの読み込みに使用するSusie-Pluginを
+指定する。標準でBMP,JPEG,PNG形式の画像が読み込めます。<BR>
+
+<BR>
+　ファイル名がAXではじまるアーカイブ展開用プラグインはDNML.EXEと同じフォルダにおけば自動的に使用します。
+　しかし、同じ拡張子用のプラグインが複数有る場合は、指定しておいて下さい。<P>
+(JPEG,PNGはSusie-Pluginを通して読み込みます。ゲームを配布する時に
+DNML.EXEを一緒に配布する場合は、IFJPEGD.SPIとIFPNG.SPIとIFPNG.TXTも一緒に
+配布して下さい。この二つのSusie-PluginはPLUGINタグを使わなくても、
+自動的に使用します。
+IFPNG.SPIは<a href="gv9k-setg@asahi-net.or.jp">gv9k-setg</a>
+さんの作品です。)
+
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      関連づけする拡張子を指定。
+
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略不可]<BR>
+      PLUGINの名前を指定。Susie PluginはDNML.EXEを同じ
+      フォルダにおいてください。
+</OL>
+<OL>
+例<BR>
+      <FONT COLOR=green><B><LI>
+      &lt;PLUGIN SRC="LF2" NAME="IFLF2.SPI"&gt;
+      </B></FONT><BR>
+      拡張子LF2のファイルはIFLF2.SPIを使用して読み込む。
+
+      <FONT COLOR=green><B><LI><BR>
+</FONT>White Album用テンプレート<FONT COLOR=green><BR>
+&lt;PLUGIN SRC="PAK" NAME="AXLFPAK2"&gt;<BR>
+&lt;PLUGIN SRC="GRP" NAME="IFLFGRP.SPI"&gt;<BR>
+<BR>
+</FONT>こみっくパーティー用用テンプレート<FONT COLOR=green><BR>
+&lt;PLUGIN SRC="PAK" NAME="AXCP.SPI"&gt;<BR>
+&lt;PLUGIN SRC="GRP" NAME="IFCP.SPI"&gt;<BR>
+
+      </B></FONT><BR>
+      PAKを展開するプラグインが複数有るので、指定しておく。
+
+
+   </OL>
+
+
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="icon">
+<H2>ICONタグ</H2>
+<table border="1"><tr><td>
+マウスを入力待つ時のアイコンを設定する。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      グラフィックのファイル名を指定。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時は"<a href="all.html#current">CURRENT</a>"]<BR>
+      ファイルのあるフォルダを指定。
+
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[アイコンを登録するときは省略不可]<BR>
+     アイコンを表示する場合を指定。<BR>
+         BRとPがある。BRは改行を待つ時。
+         Pは改ページを待つ時に指定のアイコンを表示する。
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略した場合は最後に表示した文字の横]<BR>
+     アイコンを表示する位置。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略した場合は最後に表示した文字の横]<BR>
+     アイコンを表示する位置の縦。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      TIME
+      </B></FONT>[省略時は無限大]<BR>
+      アイコンを表示する時間。単位は[ms]。<BR>
+      省略すると左クリックがあるまで、同じアイコンを表示しつづけます。
+         アイコンをアニメーションさせる場合はICONタグをならべて<BR>
+         書いて下さい。MODEが同じICONを順番に表示して、最後まで行ったら
+         また最初に定義したICONタグに戻って表示します。<BR>
+         登録できるアイコンの数に制限はありません。<BR>
+<BR>
+      <FONT COLOR=purple><B><LI>
+      &lt;/ICON&gt;
+      </B></FONT><BR>
+     以前にICONタグで指定したアイコンの使用を中止する。<BR>
+　&lt;/ICON&gt;の様にMODEを指定しないで使うと
+&lt;ICON&gt;を使うまでアイコンの使用を一時中止します。<BR>
+<P>
+<P>
+　&lt;/ICON MODE="P"&gt;の様にMODEを指定して使うと、そのタグを
+使ったときに表示するように設定したアイコンを全て削除します。<BR>
+&lt;ICON&gt;を使っても元に戻りません。全く新しいアイコンを登録し直し
+たい時にはこちらを使って下さい。
+
+
+   </OL>
+例<BR>
+   <OL>
+
+
+      <FONT COLOR=green><B><LI>
+      &lt; ICON SRC="ToHeart\newline.bmp" FOLDER="PLAYER" MODE="BR" TIME="1000"&gt;<BR>
+      &lt; ICON SRC="ToHeart\blank.bmp"   FOLDER="PLAYER" MODE="BR" TIME="1000"&gt;<BR>
+      </B></FONT><BR>
+   改行の左クリックを待っている時にnewline.bmpとblank.bmpを1秒ごとに
+   切り替えて表示する。
+
+
+      <FONT COLOR=green><B><LI>
+例１のつづきです。<BR>
+&lt;BR&gt;<BR>
+&lt;-- ここではアイコンが表示されています。--&gt;<BR>
+&lt;BACKGROUND SRC="イベントCD"&gt;<BR>
+&lt;/ICON&gt;&lt;-- アイコンの使用を一時中止--&gt;<BR>
+&lt;BR&gt;<BR>
+&lt;-- イベントCGを表示している間はアイコンを表示しません --&gt;<BR>
+&lt;ICON&gt;&lt;-- アイコンの使用を再開--&gt;<BR>
+&lt;BR&gt;<BR>
+&lt;-- ここではアイコンが表示されています。--&gt;<BR>
+      </B></FONT><BR>
+
+      <FONT COLOR=green><B><LI>
+例２のつづきです。<BR>
+&lt;BR&gt;<BR>
+&lt;-- ここではアイコンが表示されています。--&gt;<BR>
+&lt;/ICON MODE="BR"&gt;&lt;-- アイコンの使用を停止--&gt;<BR>
+&lt;BR&gt;<BR>
+&lt;-- アイコンは表示されていません --&gt;<BR>
+&lt; ICON SRC="ToHeart\newline2.bmp" FOLDER="PLAYER" MODE="BR" TIME="1000"&gt;<BR>
+&lt; ICON SRC="ToHeart\blank2.bmp"   FOLDER="PLAYER" MODE="BR" TIME="1000"&gt;<BR>
+&lt;BR&gt;<BR>
+&lt;-- ここではさっきとは違うアイコンが表示されています--&gt;<BR>
+      </B></FONT><BR>
+
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<a name="cursor">
+<H2>CURSORタグ</H2>
+<table border="1"><tr><td>
+マウスカーソルを指定する。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      カーソルのファイル名を指定。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時は"<a href="all.html#current">CURRENT</a>"]<BR>
+      ファイルのあるフォルダを指定。
+
+   </OL>
+例<BR>
+   <OL>
+
+
+      <FONT COLOR=green><B><LI>
+      &lt; CURSOR SRC="one\one.cur" FOLDER="PLAYER"&gt;<BR>
+      </B></FONT><BR>
+      マウスカーソルをone.curに設定。
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+</BDDY>
+</HTML>
+

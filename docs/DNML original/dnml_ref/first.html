@@ -1,0 +1,250 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<a href="#basic">基本的な書き方(DNMLとは)</a><BR>
+<a href="#file">ファイル名の指定の仕方(ここだけは読んで)</a><BR>
+<a href="#auto">ブックの自動実行(完全自作のゲームを配布したい人へ)</a><BR>
+<HR>
+<a name="basic">
+<h2>基本的な書き方</h2>
+<table border="1"><tr><td>
+   <OL>
+      <LI>
+      ・DNMLとは文章の中に"タグ"と呼ばれる命令
+      を書いてデジタル・ノベルを作成するための言語です。<BR>
+      その文法はHTMLそっくりでホームページを作ったことのある人なら
+      サンプルを一読するだけで書けるようになるでしょう。<BR>
+      ・HTMLを知っているのなら以下の説明を見る必要は有りません。<BR>
+<P>
+      <LI>
+      ・タグは一つの「タグ名」と、「キー」と「値」を一組とするオプション
+      からなります。<BR>
+      「値」は"(ダブルクォーテーション)で括ってください。
+<P>
+      
+<TT>
+      <FONT COLOR=green>
+&lt;BACKGROUND SRC="title.bmp" FOLDER ="c:\"&gt;
+      </FONT><BR>
+----------- +++  ***********<BR>
+↑タグ名　　↑キー　↑値      </TT>
+
+
+
+   <LI>
+・「タグ名」と「キー」は大文字と小文字を区別しません。
+<P>
+      <FONT COLOR=green><B>
+&lt;BACKGROUND SRC="lvns3.pak\c0101.lf2"&gt;
+      </B></FONT><BR>
+      <FONT COLOR=green><B>
+&lt;Background Src="lvns3.pak\c0101.lf2"&gt;
+      </B></FONT><BR>
+と
+
+は等しい。注意！「値」は区別します。
+
+                 
+   <LI>
+・オプションは前後しても構いません。
+<P>
+      <FONT COLOR=green><B>
+&lt;BACKGROUND SRC="titile.bmp" FOLDER ="c:\"&gt;
+      </B></FONT><BR>
+      <FONT COLOR=green><B>
+&lt;BACKGROUND FOLDER ="c:\" SRC="title.bmp" &gt;
+      </B></FONT><BR>
+とは等しい。
+
+   
+
+<P>
+   <LI>
+・半角スペースと改行は無視します。
+<P>
+      <FONT COLOR=green><B>
+&lt;　Background Src="title.bmp"&gt;<BR>
+&lt; 　Background Src="title.bmp"  &gt;<BR>
+&lt;　　　Background Src　=　　"title.bmp"&gt;<BR>
+&lt;     Background Src　=　"title.bmp"   &gt;<BR>
+&lt;Background<BR>
+   Src　=　"title.bmp"<BR>
+   &gt;<BR>
+      </B></FONT><BR>
+以上五つすべて有効なDNML。   
+
+
+<P>
+   <LI>
+・一行にいくつでも自由に配置できます。
+<P>
+      <FONT COLOR=green><B>
+せっかくだから、&lt;W&gt;この&lt;FONT COLOR="#FF0000"&gt;<BR>
+赤い&lt;FONT COLOR="#FFFFFF"&gt;扉を
+選ぶぜ！
+      </B></FONT><BR>
+
+<P>
+HTMLと同じようにタグを自由に配置できます。
+
+<P>
+   <LI>
+・ '&lt;'  と '&gt;' を表示するには'&amp;lt;'と'&amp;gt;'を使います。<BR>
+また '&' と '"' を表示するには'&amp;amp;'と'&amp;quot;'が使えます。<BR>
+(普通にも表示できます。)<BR>
+行の先頭に' '(半角スペース)を表示するときには'&amp;nbsp;'を使います。
+<P>
+
+      <FONT COLOR=green><B>
+背景を表示するには&amp;lt;BACKGROUND&amp;gt;タグを使います。<BR>
+↓<BR>
+背景を表示するには&lt;BACKGROUND&gt;タグを使います。<BR>
+      </B></FONT><BR>
+      と表示される。
+
+</OL>
+
+</td></tr></table>
+
+<a name="file">
+<h2>ファイル名の指定の仕方</h2>
+<P><table border="1"><tr><td>
+背景画像やMIDIを読み込む場合などファイル名を指定するタグがたくさんあります。<BR>
+それにはSRCとFOLDERキーを使いますが、ここでその使い方を説明しておきます。<BR>
+<hr>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+ファイル名を指定します。<BR>
+
+      SRCに指定するのはファイル名だけでなくパスが混じっていても
+      いいです。 "..\back.bmp"の様に親ディレクトリも使えます。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値はいま読んでいるDNMLブックと同じフォルダ]<BR>
+そのファイルのある場所を指定します。<BR>
+      アーカイブファイルの中のファイルを読み込むときにはそのアーカイブを
+      フォルダとしてパス名を付けてください。<BR>
+      FOLDERキーを省略すると今読み込んでいるDNMLブックのあるフォルダを使います。<BR>
+      SRCキーで"C:\title.bmp"とフルパスが指定してあるとFOLDERキーを無視します。
+   </OL>
+
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;BACKGROUND FOLDER ="c:\" SRC="title.bmp" &gt;
+      </B></FONT><BR>
+      c:\ドライブにあるtitle.bmpがよみこまれます。
+
+
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;BACKGROUND SRC="lvns3.pak\c0101.lf2" FOLDER ="c:\program files\toheart\"&gt;
+      </B></FONT><BR>
+     To Heartで使用されている画像はlnvs3.pakというファイルにまとめられています。
+     ですからSRCは\で区切ってファイル名を例のように指定します。<BR>
+     FOLDERにはそのファイルのあるフォルダを指定します。
+<P>
+     To HeartのインストールされているフォルダはPCによって違うので普通は<a href="all.html#alias">エイリアス(別名)</a>を使って<BR>
+      <FONT COLOR=green><B>
+      &lt;BACKGROUND SRC="lvns3.pak\c0101.lf2" FOLDER ="LVNS3"&gt;<BR>
+      </B></FONT><BR>
+      と指定します。
+
+<P>
+   FOLDERキーには常に以下の二つのエイリアスが指定できます。<BR>
+
+   <B><FONT COLOR=red>PLAYER</FONT></B>     DNML.EXEのあるフォルダ名<BR>
+   <FONT COLOR=red><B>CURRENT</B></FONT>  今読み込んでいるDNMLブックのあるフォルダ名<BR>
+   
+               グラフィックのファイル名などでFOLDERを省略すると
+               このフォルダから読み込みます。<BR>
+
+<P>
+<B><FONT COLOR=green>&lt;INCLUDE SRC="環境設定.dnml" FOLDER="PLAYER"&gt;</FONT><BR></B>
+と書いておくと、以下のエイリアスが定義されます。インストールしてあるゲームが増えると
+増えいきます。
+<P>
+<table><tr>
+   <td><B><FONT COLOR=red>LVNS1</FONT></B></td>
+   <td>雫のインストールされているフォルダ名の<a href="all.html#alias">エイリアス</a><BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>LVNS2</FONT></B></td>
+   <td>痕のインストールされているフォルダ名のエイリアス<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>LVNS3</FONT></B></td>
+   <td>To Heartのインストールされているフォルダ名のエイリアス<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>WA</FONT></B></td>
+   <td>White Albumのインストールされているフォルダ名のエイリアス<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>ONE</FONT></B></td>
+   <td>ONEのインストールされているフォルダ名のエイリアス<BR></td>
+</tr>
+</table>
+<HR>
+<table><tr>
+   <td><B><FONT COLOR=red>LVNS1_FOLDER</FONT></B></td>
+   <td>雫のインストールされているフォルダ名が裏に書かれた入った<a href="branch.html#answer">カード</a><BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>LVNS2_FOLDER</FONT></B></td>
+   <td>痕のインストールされているフォルダ名が裏に書かれた入ったカード<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>LVNS3_FOLDER</FONT></B></td>
+   <td>To Heartのインストールされているフォルダ名が裏に書かれた入ったカード<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>WA_FOLDER</FONT></B></td>
+   <td>White Albumのインストールされているフォルダ名が裏に書かれた入ったカード<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>ONE_FOLDER</FONT></B></td>
+   <td>ONEのインストールされているフォルダ名が裏に書かれた入ったカード<BR></td>
+</tr>
+</table>
+<HR>
+<table><tr>
+   <td><B><FONT COLOR=red>LVNS1_INSTALLED</FONT></B></td>
+   <td>雫のインストールされていると裏が１になる<a href="branch.html#answer">カード</a><BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>LVNS2_INSTALLED</FONT></B></td>
+   <td>痕のインストールされていると裏が１になるカード<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>LVNS3_INSTALLED</FONT></B></td>
+   <td>To Heartのインストールされていると裏が１になるカード<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>WA_INSTALLED</FONT></B></td>
+   <td>White Albumのインストールされていると裏が１になるカード<BR></td>
+</tr><tr>
+   <td><B><FONT COLOR=red>ONE_INSTALLED</FONT></B></td>
+   <td>ONEのインストールされていると裏が１になるカード<BR></td>
+</tr>
+</table>
+
+
+
+</table>
+
+
+<a name="auto">
+<h2>ブックの自動実行</h2>
+<P><table border="1"><tr><td>
+　DNML.EXEのファイル名を変えることによって、同じファイル名のブックを
+自動実行します。<BR>
+　例えば、DNML.EXEをMYGAME.EXEにリネームして起動すると、常に同じフォルダに
+あるMYGAME.DNMLを読み込んで実行します。こうすればユーザーはDNML.EXEの存在を気にせずに
+すみます。<BR>
+　オリジナルのゲームを作って配布したいときはこの機能が便利です。
+
+</td></TR>
+</table>
+
+
+</td></tr></table>
+
+
+</BDDY>
+</HTML>
+

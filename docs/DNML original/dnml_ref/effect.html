@@ -1,0 +1,267 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>背景画像や効果音を使うタグです。</h3>
+<a href="#back">BACKGROUND(背景画像の表示)</a><BR>
+<a href="#bgm">BGM(BGMの演奏)</a><BR>
+<a href="#sound">SOUND(効果音を使う)</a><BR>
+<hr>
+
+<!---------------------------------------------------->
+<a name="back">
+<H2>BACKGROUNDタグ</H2>
+<table border="1"><tr><td>
+背景画像を表示する。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[COLORキーを使うときはいらない]<BR>
+      背景に表示するファイル名
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[COLORキーを使うときはいらない]<BR>
+      ファイルのあるフォルダ名を指定。
+
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略時の値は"0"]<BR>
+      表示するグラフィックの上端の座標を指定。
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略時の値は"0"]<BR>
+      表示するグラフィックの左端の座標を指定。
+
+
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略時の値はグラフィックの幅]<BR>
+      表示するグラフィックの幅を指定。
+      "100"の様に直接画像の幅を指定する事と<BR>
+      (この場合、画像の幅は100[画素]となる)<BR>
+      "200%"の様に割合でも指定できる。<BR>
+      (この場合、画像の幅は元の大きさの2倍)
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略時の値はグラフィックの高さ]<BR>
+      表示するグラフィックの高さを指定。<BR>
+      指定の仕方はWIDTHと同じ。<BR>
+
+
+      <FONT COLOR=purple><B><LI>
+      COLOR
+      </B></FONT>[SRCをキーを使うときはいらない]<BR>
+      背景を指定した色で指定。
+
+      <FONT COLOR=purple><B><LI>
+      TRANSPARENT
+      </B></FONT>[省略時の値はNONE]<BR>
+      画像の透明色を指定する。<BR>
+      　　<B><FONT COLOR=red>NONE</FONT></B><BR>
+      　　　　透明色なし<BR>
+      　　<B><FONT COLOR=red>AUTO</FONT></B><BR>
+      　　　　画像の一番左上の点の色を透明明色にする。<BR>
+      　　<B><FONT COLOR=red>"#ffffff"の様にHTML式で色を指定</FONT></B><BR>
+      　　　　その色を透明色にする。
+
+
+<P>
+標準ではBMP画像が読み込めます。それ以外の形式の画像を読み込みたい場合は
+<a href="init.html#plugin">PLUNIN</a>タグを使用してください。
+<P>
+
+
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;BACKGROUND SRC="back.bmp"&gt;
+      </B></FONT><BR>
+      今読み込んでいるDNMLブックと同じフォルダにあるback.bmpを
+      背景画像に指定。
+
+      <FONT COLOR=green><B><LI>
+      &lt;BACKGROUND COLOR="#FFFFFF"&gt;
+      </B></FONT><BR>
+      画面を白くする。カラーの指定の仕方はHTMLと同じ。
+
+      <FONT COLOR=green><B><LI>
+      &lt;BACKGROUND SRC="階段" FOLDER ="AN" TOP="90"&gt;
+      </B></FONT><BR>
+      LEFT,TOPキーで表示する場所を指定
+      アトラク＝ナクアのように背景を画面中央に表示する
+      ゲームはこのキーを使用する。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="bgm">
+<H2>BGMタグ</H2>
+<table border="1"><tr><td>
+　BGMを鳴らす。BGMにはCD、MIDIが標準で使用できます。<BR>
+<a href="http://www.microsoft.com/Japan/DirectX/resources/dx5mediaruntime.htm">
+Direct Show
+</a>がインストールされているればMP3やAVIなどActive Movieが
+再生できる形式が全て再生できます。
+
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略するとBGMを止める]<BR>
+      CD音源を鳴らす場合は
+      2桁のトラック番号 + 拡張子".CDA"
+      で指定します。<BR>
+      MIDIやMP3を使用する場合はそのファイル名。
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値は"<a href="all.html#current">CURRENT</a>"]<BR>
+      MIDIを使用する場合はそのファイルのある
+      フォルダ名。
+      <FONT COLOR=purple><B><LI>
+      LOOP
+      </B></FONT>[省略時の値は無限大]<BR>
+      BGMを繰り返す回数を指定する。
+      <FONT COLOR=purple><B><LI>
+      TIME
+      </B></FONT>[省略時の値は0]<BR>
+      BGMをフェードアウトさせる。<BR>
+      BGMの音量が0になるまでの時間を指定します。<BR>
+      &lt;/BGM&gt;でBGMを止めるときのみ使えます。<BR>
+      単位は[ms](1000[ms]=1秒)<BR>
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値は"WAIT"]<BR>
+      "WAIT"か"PASS"をしていする。<BR>
+      &lt;/BGM&gt;でBGMを止めるときのみ使える。<BR>
+      "WAIT"だとBGMがフェードアウトするときに音量が0になるまで<BR>
+      ゲームを止める。
+      "PASS"だとBGMがフェードアウトしながらゲームを進める。<BR>
+
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;BGM SRC="03.CDA"&gt;
+      </B></FONT><BR>
+      CDのトラック3を演奏する。
+
+      <FONT COLOR=green><B><LI>
+      &lt;BGM SRC="bgm1.mid"&gt;
+      </B></FONT><BR>
+      FOLDERキーがないので、今読み込んでいるDNMLブックと同じフォルダに有る
+      bgm1.midを演奏します。
+      <FONT COLOR=green><B><LI>
+      &lt;/BGM&gt;
+      </B></FONT><BR>
+     BGMの演奏を停止。
+      <FONT COLOR=green><B><LI>
+      &lt;/BGM TIME="5000"&gt;
+      </B></FONT><BR>
+     5秒間かけてBGMをフェードアウト<BR>
+     そのあいだゲームは止まります。<BR>
+      <FONT COLOR=green><B><LI>
+      &lt;/BGM TIME="10000" MODE="PASS"&gt;
+      </B></FONT><BR>
+     5秒間かけてBGMをフェードアウト<BR>
+     BGMをフェードアウトさせつつ、ゲームを進めます。
+
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="sound">
+<H2>SOUNDタグ</H2>
+<table border="1"><tr><td>
+効果音を鳴らす。<BR>
+WAVE形式とP16形式(Leafのゲームで使われている)が使えます。<BR>
+DirectSound対応のサウンドカードでなければ、LOOP属性と&lt;/SOUND&gt;は
+使えません。
+<hr>
+<a name="act">
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      鳴らすファイル名を指定。
+
+      <FONT COLOR=purple><B><LI>
+      FOLDER
+      </B></FONT>[省略時の値は"<a href="all.html#current">CURRENT</a>"]<BR>
+      鳴らすファイルのあるフォルダを指定。
+
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値は"WAIT"]<BR>
+      MODE="WAIT"で効果音が鳴り終わるまで、次に表示する絵や文字を
+      出しません。<BR>
+      MODE="PASS"で効果音が鳴り終わるのを待たずにゲームを進めます
+     
+      <FONT COLOR=purple><B><LI>
+      LOOP
+      </B></FONT>[省略時の値は"1"]<BR>
+      効果音を繰り返す回数を指定します。<BR>
+      "0"を指定すると&lt;/SOUND&gt;で止めるまで鳴り続けます。<BR>
+      この時のMODEは強制的に"PASS"になります。
+      <FONT COLOR=purple><B><LI>
+      &lt;/SOUND&gt;
+      </B></FONT><BR>
+      現在鳴っている全ての効果音を中止します。<BR>
+
+
+   </OL>
+<BR>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;SOUND SRC="パン" FOLDER="LVNS3"&gt;
+      </B></FONT><BR>
+      To Heartのテンプレートで"パン"は"LVNS3DAT.PAK\TH_VD01.P16"
+      に別名を指定してあります。
+      これでTo Hreatで使われている"パン"と聞こえる効果音を鳴らします。
+
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;SOUND SRC="pi.wav" MODE="PASS"&gt;
+      </B></FONT><BR>
+      今読んでいるDNMLブックと同じフォルダにある"pi.wav"を
+      ならします。MODEはPASSですので鳴り終わるのを待たずに
+      ゲームを進めます。
+
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;INCLUDE SRC="痕\テンプレート.dnml" FOLDER="PLAYER"&gt;<BR>
+      &lt;SOUND SRC="リーン" FOLDER="LVNS2" LOOP="0"&gt;<BR>
+・<BR>
+・<BR>
+・<BR>
+&lt;/SOUND&gt;<BR>
+
+      </B></FONT><BR>
+      LOOP="0"なので&lt;/SOUND&gt;がくるまで鈴虫の鳴き声が鳴り続けます。<BR>
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+</BDDY>
+</HTML>
+

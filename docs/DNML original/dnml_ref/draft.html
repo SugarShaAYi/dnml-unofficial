@@ -1,0 +1,631 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>追加予定のタグです</h3>
+このページに書いてあるタグはまだ<B>機能していません。</B>
+<BR>
+こうした方がわかりやすいじゃないかとか、追加して欲しいタグの要望などは<a href="http://bbs1.otd.co.jp/10102/bbs_tree">掲示板</a>でお待ちしております。
+<BR>
+<hr>
+
+<!--------------------------------------------------
+<a name="curtain">
+<H2>タグのジャンル分け</H2>
+<table border="1"><tr><td>
+　タグを
+<table border="1">
+<tr>
+<rd>RADIO</td>
+<td>DNMLブラウザは最低このタグが使えなければならない。<BR>
+ラジオの名の示す通り、グラフィック系のタグは扱いません。
+</td>
+<td>ALIAS,INCLUDE,BR,A HREFなど基本的なタグ。
+</td>
+</tr>
+
+<tr>
+<rd>CHINEMA</td><td></td>
+<td></td>
+</tr>
+
+<tr>
+<rd>THEATER</td><td></td>
+
+<td>RECORD,PLAYなどほの他すべてのタグ</td>
+
+</tr>
+</td></tr></table>
+</td></tr></table>
+-->
+<!---------------------------------------------------->
+
+
+
+
+<!---------------------------------------------------->
+<a name="record">
+<H2>RECORD</H2>
+<table border="1"><tr><td>
+　物語のシーンを録画します。<BR>
+ここで記録したシーンは<a href="#play">PLAY</a>タグで何度でも再生できます。<BR>
+同じシーンを何度も使う場合はこれを使うと便利です。<BR>
+<hr>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略不可]<BR>
+      録画するシーンの名前を付けます。<BR>
+      <FONT COLOR=purple><B><LI>
+      &lt;/RECORD&gt;
+      </B></FONT>[省略不可]<BR>
+      シーンの録画をやめます。<BR>
+   </OL>
+<P>
+例<BR>
+   <OL><LI>
+<table border="1"><tr><td>
+      <FONT COLOR=green><B>
+      &lt;RECORD NAME="撃たれる"&gt;<BR>
+　　      &lt;QUESTION ANSWER="(台詞=(@2))"&gt;<BR>
+　　      &lt;EVENT ANSWER="(台詞?0)"&gt;<BR>
+　　　　      「くっそー」&lt;BR&gt;<BR>
+　　      &lt;/EVENT&gt;<BR>
+　　      &lt;EVENT ANSWER="(台詞?1)"&gt;<BR>
+　　　　     「やりやがったなぁ」&lt;BR&gt;<BR>
+　　      &lt;/EVENT&gt;<BR>
+　　      &lt;EVENT ANSWER="(台詞?2)"&gt;<BR>
+　　　　      「このやろー」&lt;BR&gt;<BR>
+　　      &lt;/EVENT&gt;<BR>
+      &lt;/RECORD&gt;<BR>
+      </B></FONT><BR>
+</td></tr></table>
+
+     　&lt;RECORD&gt;と&lt;/RECORD&gt;で挟まれたシーンを"撃たれる"<BR>
+     という名前で録画します。<BR>
+     　このタグで挟まれた部分はまだ画面に表示されません。<BR>
+     　このシーンは二行目で台詞には0～2迄の乱数が入ります。<BR>
+     よって、「くっそー」「やりやがったなぁ」「このやろー」の三つの台詞の内三つが
+     ランダムで表示されます。詳しい説明は
+     <a href="branch.html#answer">カードの組み合わせ</a>を見て下さい。<BR>
+     　次にRECORDタグで録画したシーンをPLAYタグで再生します。<BR>
+<table border="1"><tr><td>
+      <FONT COLOR=green><B>
+     &lt;PLAY NAME="撃たれる"&gt;&lt;/PLAY&gt;<BR>
+     &lt;PLAY NAME="撃たれる"&gt;&lt;/PLAY&gt;<BR>
+    　このゲームには無敵時間などは無かった。<BR>
+     &lt;PLAY NAME="撃たれる"&gt;&lt;/PLAY&gt;<BR>
+     &lt;PLAY NAME="撃たれる"&gt;&lt;/PLAY&gt;<BR>
+     &lt;PLAY NAME="撃たれる"&gt;&lt;/PLAY&gt;<BR>
+     　極端な話、３発同時に喰らったらコンティニューから３秒でゲームオーバー
+     なんてこともあるのだ
+      </B></FONT><BR>
+</td></tr></table>
+     PLAYの所はRECORDタグで録画した部分が再生されますから<BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+      「くっそー」<BR>
+      「やりやがったなぁ」<BR>
+    　このゲームには無敵時間などは無かった。<BR>
+      「やりやがったなぁ」<BR>
+      「このやろー」<BR>
+      「くっそー」<BR>
+     　極端な話、３発同時に喰らったらコンティニューから３秒でゲームオーバー
+     なんてこともあるのだ
+</td></tr></table>
+     と表示されます。<BR>
+<P>
+<P>
+<HR>
+
+<LI>
+<table border="1"><tr><td>
+      <FONT COLOR=green><B>
+      「じゃあ、ビール」<BR>
+      &lt;PLAY NAME="ツッコミを入れる"&gt;<BR>
+　　      &lt;CARD NAME="台詞" VALUE="はいはい、お約束"&gt;<BR>
+      &lt;/PLAY&gt;<BR>
+      &lt;P&gt;<BR>
+      「気を取り直して、、ビー」<BR>
+      &lt;PLAY NAME="ツッコミを入れる"&gt;<BR>
+　　      &lt;CARD NAME="台詞" VALUE="だから、だめだってば(^^;;"&gt;<BR>
+      &lt;/PLAY&gt;<BR>
+      &lt;P&gt;<BR>
+      </B></FONT><BR>
+</td></tr></table>
+例では"ツッコミを入れる"という名前で録画されたシーンを再生しています。<BR>
+"台詞"という名前のカードを作り、それの裏に"はいはい、お約束"という文字を
+書きます。<BR>
+このカードはPLAYタグの中でのみ使われます。<BR>
+"ツッコミを入れる"というシーンはこのように録画されています。<BR>
+<table border="1"><tr><td>
+      <FONT COLOR=green><B>
+      &lt;RECORD NAME="ツッコミを入れる"&gt;<BR>
+　　      &lt;CARD NAME="台詞"&gt;<BR>
+　　      &lt;CLIP&gt;<BR>
+　　      &lt;FONT COLOR="#FFFF00"&gt;<BR>
+　　      &lt;POSITION TOP="90%" LEFT="40%"&gt;<BR>
+　　　　  &lt;<A HREF="others.html#write">WRITE</a> SRC="台詞"&gt;<BR>
+　　      &lt;FONT COLOR="USER"&gt;<BR>
+　　      &lt;/CLIP&gt;<BR>
+      &lt;/RECORD&gt;<BR>
+      </B></FONT><BR>
+</td></tr></table><BR>
+このシーンは<a href="text.html#clip">CLIP</a>で現在の文字の
+位置を保存します。<BR>つぎに、文字の色を黄色にして画面の下の方に
+"台詞"にというカードの裏に書かれた文字を表示します。<BR>
+<P>
+"台詞"と言う名前のカードの裏にはPLAYタグで"ツッコミを入れる"という文字が
+書かれています。<BR>
+
+よってこの部分を実行すると<BR>
+
+
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+      「じゃあ、ビール」<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<FONT COLOR="#FFFF00">　　　　　　　　はいはい、お約束</FONT>
+</td></tr></table>
+↓
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+
+      「……気を取り直して、ビー」<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<FONT COLOR="#FFFF00">　　　　　　　　だから、だめだってば(^^;;</FONT>
+</td></tr></table>
+と表示されます。
+
+<P>
+
+<LI>
+<BR>
+PLAYタグ内で作られたカードはRECORDタグ内でしかつかえません。<BR>
+そのRECORDタグ内で作られたカードも&lt;/RECORD&gt;で全て削除されます。<BR>
+RECORDタグの外で作られたカードを使うことはできます。<BR>
+<P>
+<table border="1"><tr><td>
+<B>RECORDタグ内で作られたカードと外で作られたカードで同じ名前が有ったときには<BR>
+</B><HR>
+外で作られたカードを一時使用禁止にして、カードを作ります。<BR>
+/RECORDが来たらタグ内で作ったカードを全て捨てます。<BR>
+そのときに一時使用禁止にされたカードは復活します。<BR>
+</td></tr></table>
+
+      <FONT COLOR=green><B>
+      <BR>
+&lt;QUESTION ANSWER="(越前の攻撃力=10)"&gt;<BR>
+&lt;QUESTION ANSWER="(越前の体力=20)"&gt;<BR>
+&lt;QUESTION ANSWER="(越前の防御力=7)"&gt;<BR>
+&lt;QUESTION ANSWER="(佐藤の攻撃力=10)"&gt;<BR>
+&lt;QUESTION ANSWER="(佐藤の体力=5)"&gt;<BR>
+&lt;QUESTION ANSWER="(佐藤の防御力=5)"&gt;<BR>
+
+<P>
+      &lt;RECORD NAME="戦闘処理"&gt;<BR>
+　　&lt;CARD NAME="攻撃側"&gt;<BR>
+　　&lt;CARD NAME="防御側"&gt;<BR>
+　　&lt;QUESTION ANSWER="(ダメージ = ({防御側}の防御力-{攻撃側}の攻撃力))"&gt;<BR>
+　　&lt;WRITE NAME="攻撃側"&gt;の攻撃！<BR>
+　　&lt;WRITE NAME="防御側"&gt;に<BR>
+　　&lt;WRITE NAME="ダメージ"&gt;ポイントの
+ダメージを与えた。&lt;BR&gt;<BR>
+　　&lt;QUESTION ANSWER="({防御側}の体力 = ({防御側}の体力 - ダメージ))"&gt;<BR>
+
+　　&lt;EVENT ANSWER="({防御側}の体力 < 1)"&gt;<BR>
+　　　　「おーのー」<BR>
+　　　　&lt;WRITE NAME="防御側"&gt;はちからつきた。<BR>
+　　&lt;/EVENT&gt;<BR>
+
+　　&lt;EVENT ANSWER="({防御側}の体力 > 0)"&gt;<BR>
+　　　　&lt;WRITE NAME="防御側"&gt;は<BR>
+　　　　&lt;WRITE NAME="攻撃側"&gt;の攻撃を耐えた。<BR>
+　　&lt;/EVENT&gt;<BR>
+
+      &lt;/RECORD&gt;<BR>
+<P>
+      &lt;PLAY NAME="戦闘処理"&gt;<BR>
+　　      &lt;CARD NAME="攻撃側" VALUE="佐藤"&gt;<BR>
+　　      &lt;CARD NAME="防御側" VALUE="越前"&gt;<BR>
+      &lt;/PLAY&gt;<BR>
+      &lt;P&gt;<BR>
+      &lt;PLAY NAME="戦闘処理"&gt;<BR>
+　　      &lt;CARD NAME="攻撃側" VALUE="越前"&gt;<BR>
+　　      &lt;CARD NAME="防御側" VALUE="佐藤"&gt;<BR>
+      &lt;/PLAY&gt;<BR>
+      &lt;P&gt;<BR>
+      </B></FONT><BR>
+と書いた場合、
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+佐藤の攻撃！<BR>
+佐藤は越前に3ポイントのダメージをあたえた。<BR>
+越前は佐藤の攻撃を耐えた<BR>
+<P>
+越前の攻撃！<BR>
+越前は佐藤に5ポイントのダメージをあたえた。<BR>
+「おーのー」<BR>
+佐藤はちからつきた<BR>
+
+<BR>
+</td></tr></table>
+と表示されます。<BR>
+<LI>
+<table border="1"><tr><td>
+<B>RECORDタグ内同じ名前のRECORDを再生した場合。<BR>
+</B><HR>
+RECORDタグの外で作られたカードは使えますが、
+今いるRECORDタグで作られたカードしか見えません。<BR>
+</td></tr></table>
+
+
+      <FONT COLOR=green><B>
+      &lt;RECORD NAME="カウントダウン"&gt;<BR>
+　　      &lt;CARD NAME="カウンタ"&gt;<BR>
+　　      &lt;WRITE SRC="カウンタ"&gt;<BR>
+　　      &lt;QUESTION SRC="(結果=(カウンタ-1))"&gt;<BR>
+　　      &lt;EVENT ANSWER="(結果 > 0)"&gt;<BR>
+　　　　      &lt;PLAY NAME="カウントダウン"&gt;<BR>
+　　　　　　      &lt;CARD NAME="カウンタ" VALUE="{結果}"&gt;<BR>
+　　　　      &lt;/PLAY&gt;<BR>
+　　      &lt;/EVENT&gt;<BR>
+      &lt;/RECORD&gt;<BR>
+
+
+      &lt;PLAY NAME="カウントダウン"&gt;<BR>
+　　      &lt;CARD NAME="カウンタ" VALUE="5"&gt;<BR>
+      &lt;/PLAY&gt;<BR>
+      </B></FONT><BR>
+の様に書いた場合は「５，４，３，２，１，」と表示されます。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="play">
+<H2>PLAY</H2>
+<table border="1"><tr><td>
+　<a href="#record">RECORD</a>タグで録画したシーンを再生します。<BR>
+
+<hr>
+<P>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略不可]<BR>
+      再生するシーンの名前を指定します。<BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="param">
+<H2>CARD</H2>
+<table border="1"><tr><td>
+　<a href="#record">RECORD</a>タグ内で使うカードを作ります。<BR>
+<hr>
+<P>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略不可]<BR>
+      カードの名前を指定します。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      VALUE
+      </B></FONT>[RECORDではカードの標準の値を指定。<BR>
+      PLAYではカードの値を指定。]<BR>
+      カードの値を指定します。<BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+<!---------------------------------------------------->
+<a name="map">
+<H2>MAP</H2>
+<table border="1"><tr><td>
+HTMLのクリッカブルマップと同等の機能を提供する。
+<hr>
+<P>
+例<BR>
+   <OL>
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+<!---------------------------------------------------->
+<a name="vertical_rotate">
+<H2>SCREENタグのMODE & ROTATE</H2>
+<table border="1"><tr><td>
+文章を縦書きしたい時に使う。
+<hr>
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時は"HORIZONTAL"]<BR>
+      文章の並べ方を指定する。<BR>
+      "HORIZONTAL"で横書き。<BR>
+      "VERTICAL"で縦書き。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      ROTATE
+      </B></FONT>[省略時はなし]<BR>
+      縦書きしたときに９０度回転して表示する文字を指定する。<BR>
+      "[](){}｛｝（）「」；：＝"あたりを指定しておかないと<BR>
+      表示が変になります。<BR>
+   </OL>
+
+
+<P>
+例<BR>
+   <OL>
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------
+<a name="focus">
+<H2>WINDOWタグの拡張</H2>
+<table border="1"><tr><td>
+WINDOWをいくつも表示したいときには、このタグを使用して<BR>
+新しいウィンドウを作ります。<BR>
+<hr>
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略時の名前は"TEXT"]<BR>
+      WINDOWの名前を指定
+   </OL>
+</td></tr></table>
+---------------------------------------------------->
+
+<!---------------------------------------------------
+<a name="screen">
+<H2>SCREENタグの拡張</H2>
+<table border="1"><tr><td>
+WINDOWをいくつも表示しているときは、このタグを使用して<BR>
+そのウィンドウ用のSCREENを作ります。
+<hr>
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略時の名前は"TEXT"]<BR>
+      WINDOWの名前を指定
+   </OL>
+</td></tr></table>
+---------------------------------------------------->
+
+
+<!---------------------------------------------------
+<a name="focus">
+<H2>FOCUSタグ</H2>
+<table border="1"><tr><td>
+WINDOWをいくつも表示しているときは、このタグを使用して<BR>
+カレントウィンドウを切り替えます。<BR>
+新しいカレントウィンドウは自動的に表示されます。<BR>
+前のウィンドウの状態はMODEで指定します。
+<hr>
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略時の名前は"TEXT"]<BR>
+      WINDOWの名前を指定。
+      <FONT COLOR=purple><B><LI>
+      MODE
+      </B></FONT>[省略時の値は"OPEN"]<BR>
+      "OPEN"か"CLOSE"を指定します。<BR>
+ウィンドウを切り替えるときに、今のウィンドウを
+どうするか指定します。<BR>
+"CLOSE"を指定すると今あるウィンドウを閉じてからウィンドウを
+切り替えます。<BR>
+"OPEN"だとそのまま。
+   </OL>
+</td></tr></table>
+---------------------------------------------------->
+
+
+
+<!---------------------------------------------------->
+<a name="secret">
+<H2>SECRETタグ</H2>
+<table border="1"><tr><td>
+デバックウィンドウを表示できなくなる。<BR>
+謎解きなどを読者に見せたくないときに使う。
+<hr>
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      /SECRET
+      </B></FONT><BR>
+      デバックウィンドウを出せるようにする。
+   </OL>
+
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!--------------------------------------------------
+<a name="secret">
+<H2>SCOPEタグ</H2>
+<table border="1"><tr><td>
+ステージの見える範囲を変更する。<BR>
+これで、画面のスクロールや、一部の拡大縮小が出来る。<BR>
+<P>
+大きな絵を虫眼鏡を通して見ている所を想像して下さい。<BR>
+虫眼鏡を左右に動かすと、これを通してみた絵は左右に移動しているように見えます。<BR>
+上下に動かすと絵が大きくなったり、小さくなったり見えます。<BR>
+これと同じ効果を出すのがSCOPEタグです。
+
+<hr>
+<P>
+キー<BR>
+   <OL>
+
+      <FONT COLOR=purple><B><LI>
+      TIME
+      </B></FONT>[省略時は一秒となる]<BR>
+      SCOPEの位置を現在の位置から指定した位置まで動かすまでにかかる時間を
+      指定します。
+      "00:00"の様に[分:秒]単位と"00:00:00"の様に[分:秒:1/60秒]単位<BR>
+      で指定できます。
+
+      <FONT COLOR=purple><B><LI>
+      STEP
+      </B></FONT>[省略時はDNMLが決める]<BR>
+      動かし終わる迄に表示する中割りの画像の数を決めます。<BR>
+      例えば画像を10[画素]スクロールさせる時これにSKIP="10"を指定すると、<BR>
+      10[画素]動かすのに10枚中割りの絵を表示しますから、1[画素]ずつ
+      絵がスクロールしていきます。SKIP="5"を指定すると中割りの絵は5枚ですから
+      2[画素]ずつスクロールしてきます。<BR>
+
+
+      <FONT COLOR=purple><B><LI>
+      TOP
+      </B></FONT>[省略不可]<BR>
+      新しいスコープの上の座標を指定。<BR>
+      この位置を動かすと画面がスクロールする。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      LEFT
+      </B></FONT>[省略不可]<BR>
+      新しいスコープの左の座標を指定。<BR>
+      この位置を動かすと画面がスクロールする。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略不可]<BR>
+      新しいスコープの幅を指定。<BR>
+      これを<a href="init.html#stage">STAGE</a>で指定した大きさより小さくすると、
+      STAGEと同じ大きさに拡大する。
+
+      <FONT COLOR=purple><B><LI>
+      HEIGHT
+      </B></FONT>[省略不可]<BR>
+      新しいスコープの高さを指定。<BR>
+      これを<a href="init.html#stage">STAGE</a>で指定した大きさより小さくすると、
+      STAGEと同じ大きさに拡大する。
+
+   </OL>
+
+例<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+&lt;BACKGROUND SRC="商店街" FOLDER="LVNS3"&gt;<BR>
+&lt;ENTER NAME="セバス"&gt;<BR>
+&lt;ACT NAME="セバス" SRC="C1402.LF2" FOLDER="LVNS3"&gt;<BR>
+&lt;SOUND SRC="ガー" FOLDER="LVNS3"&gt;<BR>
+&lt;SCOPE TOP="120" LEFT="160" WIDTH="320" HEIGHT="240" TIME="00:01" STEP="10"&gt;<BR>
+&lt;SCOPE TOP="0" LEFT="0" WIDTH="640" HEIGHT="480" TIME="00:01" STEP="10"&gt;<BR>
+      </B></FONT><BR>
+
+&lt;BACKGROUND SRC="商店街" FOLDER="LVNS3"&gt;<BR>
+
+   </OL>
+
+
+
+</td></tr></table>
+ ---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="plugin">
+<H2>DNML アーカイブ プラグイン</H2>
+<table border="1"><tr><td>
+DNML用のSusieアーカイブ展開用プラグイン。<BR>
+オリジナルゲームをZIPやLHAを使わず圧縮して配布したい時や、
+暗号化して中身を見せたくないブックを作りたい時に使う。<BR>
+<hr>
+<P>
+
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+<!---------------------------------------------------
+<a name="archive">
+<H2>アーカイブファイルからの直接実行</H2>
+<table border="1"><tr><td>
+ZIPやLZH形式などで圧縮されたブックを解凍せずに直接実行する。<BR>
+圧縮形式はアーカイブ展開用プラグインがあれな何でもかまわない。<BR>
+アーカイブ内のどのDNMLブックを実行するかは以下の通り<BR>
+
+1)圧縮ファイルの中に"index.dnml"が有ればそれを実行する。<BR>
+2)アーカイブ内に拡張子DNMLのファイルが一つしかなければそれを実行する。<BR>
+3)拡張子DNMLのファイルがいくつも有れば少し読み込んでヘッダから推測する。<BR>
+4)それでもわからなければユーザーに問い合わせる。<BR>
+
+<P>
+なお、そのときファイルオープンダイアログの下の方にヘッダの情報が<BR>
+表示されます。ヘッダはちゃんと書いておいて下さい。<BR>
+ヘッダの書き方は以下の通り。<BR>
+ヘッダは全部書かなくても、必要なところだけで結構です。順番なども自由です。<BR>
+
+"index.html","index.htm","readme.txt"という名前のファイルがあれば、
+右クリックのメニューより表示できる。<BR>
+
+
+<hr>
+<P>
+
+   </OL>
+<FONT COLOR=purple><B>
+&lt;!-- title  :「デベロッパーズリリース１」--&gt;</B></FONT><BR>
+「title:」の次にブックのタイトル<BR>
+<FONT COLOR=purple><B>
+&lt;!-- author : 花梨--&gt;</B></FONT><BR>
+「author :」の次に作者<BR>
+<FONT COLOR=purple><B>
+&lt;!-- e-mail : karin@paw.office.ne.jp--&gt;</B></FONT><BR>
+「e-mail :」の次にe-mail addres<BR>
+<FONT COLOR=purple><B>
+&lt;!-- HP     : http://member.nifty.ne.jp/karin/ --&gt;</B></FONT><BR>
+「HP:」の次にホームページ(あれば)<BR>
+<FONT COLOR=purple><B>
+&lt;!-- Date   : 1998,8,27 --&gt;</B></FONT><BR>
+「Date   :」の次に作成日時<BR>
+<FONT COLOR=purple><B>
+&lt;!-- Script : 花梨 <karin@shiho-fan.club.or.jp>  --&gt;</B></FONT><BR>
+「Script :」の次にDNMLブックを書いた人(他人の書いた二次創作を違う人かDNML化したときに使う) <BR>
+<FONT COLOR=purple><B>
+&lt;!-- Comment: DNMLのサンプルファイルです。 --&gt;<BR>
+&lt;!-- Comment: すべてのDNMLにはなるべくこの形式でヘッダを --&gt;<BR>
+&lt;!-- Comment: 付けてください --&gt;<BR></B></FONT>
+「Comment:」の次にコメント<BR>
+</td></tr></table>
+--------------------------------------------------->
+
+
+
+
+</BDDY>
+</HTML>
+
+

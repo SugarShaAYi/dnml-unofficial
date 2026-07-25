@@ -1,0 +1,438 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>物語に特殊な画面効果を使います。</h3>
+<a href="#effect">EFFECT(効果を付けて場面を変更)</a><BR>
+<a href="#kick">KICK(画面を揺らす)</a><BR>
+<a href="#wait">WAIT(表示速度の調整)</a><BR>
+<a href="#sunglass">SUNGLASS(画面に色を付ける)</a><BR>
+<a href="#curtain">CURTAIN(画面の変更をまとめて実行)</a><BR>
+<a href="#timer">TIMER(時間に合わせたタグの実行)</a><BR>
+<hr>
+
+
+<!---------------------------------------------------->
+<a name="effect">
+<H2>EFFECTキー
+<table border="1"><tr><td>
+<a href="char.html#enter">ENTER</a>、<a href="char.html#act">ACT</a>、
+<a href="char.html#exit">EXIT</a>、<a href="effect.html#back">BACKGROUND</a>、
+<a href="#curtain">CURTAIN</a>での描画の効果を指定する。
+<hr>
+<P>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      EFFECT
+      </B></FONT><BR>
+      [BACKGROUNDで省略するとエイリアス"EF_DEFAULT_BACK"]<BR>
+                 [ENTERで省略するとエイリアス"EF_DEFAULT_CHAR"]<BR>
+                 [ACT,EXITで省略するとENTERで指定した値]<BR>
+      描画の時に使用する、効果を指定します。
+      (To Heartでキャラクタがじわじわと表示されたり、ONEで画面が右から消えていくやつね)<BR>
+      エイリアス"EF_DEFAULT_BACK"、"EF_DEFAULT_CHAR"は
+      テンプレートファイルの中で設定されます。<BR>
+      <B>よってEFFECTキーを一切省略しても、To HeartやONEなどで使用されている効果が
+      自動的に選択されます。</B>
+      
+<P>
+      EFFECTの指定可能な値。<BR>
+      <FONT COLOR=maroon><b>EF_FADEIN</FONT></b><BR>
+      画面全体からじわじわと表示する。<BR>
+      To Heartのキャラクタの表示の仕方です。<BR>
+
+      <FONT COLOR=maroon><b>EF_NORMAL</FONT></b><BR>
+      櫛形に表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_NONE</FONT></b><BR>
+      効果なしで表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_OVERLAP</FONT></b><BR>
+      半透明を使って重ねて表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_BLACK_WIPE</FONT></b><BR>
+      一度画面を黒くしてから櫛形に表示する。<BR>
+      To Heartの背景の表示の仕方です。<BR>
+      この値に限ってBACKGROUNDにしか指定できません。<BR>
+
+      <FONT COLOR=maroon><b>EF_FADE_FROM_LEFT</FONT></b><BR>
+      画面左からじわじわと表示する。<BR>
+      ONEでの背景の表示の仕方です。<BR>
+
+      <FONT COLOR=maroon><b>EF_FADE_FROM_RIGHT</FONT></b><BR>
+      画面右からじわじわと表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_FADE_FROM_TOP</FONT></b><BR>
+      画面上からじわじわと表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_FADE_FROM_BOTTOM</FONT></b><BR>
+      画面下からじわじわと表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_FROM_LEFT</FONT></b><BR>
+      画面左から表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_FROM_RIGHT</FONT></b><BR>
+      画面右から表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_FROM_TOP</FONT></b><BR>
+      画面上から表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_FROM_BOTTOM</FONT></b><BR>
+      画面下から表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_BLIND_FROM_LEFT</FONT></b><BR>
+      ブラインドを降ろしたような効果で画面左から表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_BLIND_FROM_RIGHT</FONT></b><BR>
+      ブラインドを降ろしたような効果で画面右から表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_BLIND_FROM_TOP</FONT></b><BR>
+      ブラインドを降ろしたような効果で画面上から表示する。<BR>
+
+      <FONT COLOR=maroon><b>EF_BLIND_FROM_BOTTOM</FONT></b><BR>
+      ブラインドを降ろしたような効果で画面下から表示する。<BR>
+   </OL>
+
+
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI><BR>
+      &lt;INCLUDE SRC="ToHeart\テンプレート.dnml" FOLDER="PLAYER"&gt;<BR>
+      &lt;BACKGROUND SRC="教室授業中" FOLDER="LVNS3"&gt;<BR>
+      </FONT></b><BR>
+      EFFECTキーが省略されいるので自動的にToHeartで舞台が変更されるときの
+      エフェクトを使って描画します。
+
+      <FONT COLOR=green><B><LI><BR>
+      &lt;INCLUDE SRC="ToHeart\テンプレート.dnml" FOLDER="PLAYER"&gt;<BR>
+      &lt;BACKGROUND SRC="教室授業中" FOLDER="LVNS3" EFFECT="EF_ONE_BACK"&gt;<BR>
+      </FONT></b><BR>
+      ONEで舞台が変更される時のエフェクトを使って描画します。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="kick">
+<H2>KICKタグ</H2>
+<table border="1"><tr><td>
+画面全体を揺らします。
+<hr>
+</UL>
+
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      WIDTH
+      </B></FONT>[省略時の値は"40"]<BR>
+      画面を揺らす幅を指定。単位は[画素]
+      <FONT COLOR=purple><B><LI>
+      TIME
+      </B></FONT>[省略時の値は"200"]<BR>
+      画面を1セット揺らすのにかける時間<BR>
+      単位は[ミリセカンド]です(200ミリセカンドは0.2秒)<BR>
+      上下左右に一回ずつ揺らすのが1セット
+      <FONT COLOR=purple><B><LI>
+      LOOP
+      </B></FONT>[省略時の値は"2"]<BR>
+      何セット画面を揺らすか指定する。<BR>
+      標準では２回<BR>
+   </OL>
+
+例
+<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      ドスン！
+      &lt;KICK&gt;
+      </B></FONT><BR>
+      画面にドスン！と表示された後、画面全体が揺れます。
+      <FONT COLOR=green><B><LI>
+      &lt;KICK WIDTH="10" TIME="100" LOOP="20"&gt;<BR>
+      地震か？
+      </B></FONT><BR>
+      画面を標準の4分の1の幅で揺らします。<BR>
+      TIMEに"100"が指定してありますから、<BR>
+      一セット揺れるのにかかる時間は100ミリセカンド(0.1秒)<BR>
+      LOOPに"20"が指定してありますから20セット揺らします。<BR>
+      １セット0.1秒の揺れを20回しますから、2秒間画面が揺れ続けます。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="wait">
+<H2>WAITタグ</H2>
+<table border="1"><tr><td>
+文字やキャラクターの表示のウェイトをコントロールする
+<hr>
+<a name="act">
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      TEXT
+      </B></FONT>[省略時には値を変更しない]<BR>
+      文字の表示速度を指定。
+
+      <FONT COLOR=purple><B><LI>
+      CHARACTER
+      </B></FONT>[省略時には値を変更しない]<BR>
+      人物の表示速度をしてい。
+
+      <FONT COLOR=purple><B><LI>
+      BACK
+      </B></FONT>[省略時には値を変更しない]<BR>
+      背景の表示速度を指定。
+
+      <FONT COLOR=purple><B><LI>
+      FADE
+      </B></FONT>[省略時には値を変更しない]<BR>
+      フェードイン、フェードアウトの速度を指定。
+
+      <FONT COLOR=purple><B><LI>
+      &lt;/WAIT&gt;
+      </B></FONT>[]<BR>
+      対になるのWAITタグの効果を元に戻します。
+
+
+   </OL>
+   0は速度調整で一番早い時、
+   100で最も遅い時の速度です。
+   数字の部分にUSERを指定すると
+   ユーザーの指定した速度に戻します。
+<BR><BR>
+
+例
+<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;WAIT TEXT="200"&gt;
+      </B></FONT><BR>
+     文字の表示速度を、200に設定する。<BR>
+   &lt;WAIT BACK="10" CHARACTER="500"&gt;
+   のように同時に指定できます。
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;WAIT TEXT="USER"&gt;
+      </B></FONT><BR>
+     変更した文字の速度をユーザーの設定に戻す。
+<BR>
+
+<P>
+      <FONT COLOR=green><B><LI>
+      &lt;WAIT TEXT="200"&gt;<BR>
+　　      &lt;WAIT BACK="200"&gt;<BR>
+　　      &lt;/WAIT&gt;<BR>
+　　      &lt;!-- ここではBACKの速度が元に戻ります --&gt;<BR>
+      &lt;/WAIT&gt;<BR>
+      &lt;!-- ここではTEXTの速度が元に戻ります --&gt;<BR>
+      </B></FONT><BR>
+     対になるWAITタグの効果を元に戻します。
+
+
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="sunglass">
+<H2>SUNGLASSタグ</H2>
+<table border="1"><tr><td>
+これから読み込む絵を画面全体をユーザーがサングラス(色の着いた眼鏡)をつけて見ているかのように塗ります。<BR>
+今画面に出ている絵には影響しません。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      COLOR
+      </B></FONT>[省略不可]<BR>
+      <FONT COLOR=maroon><b>MONO</FONT></b><BR>
+      白黒になる<BR>
+      <FONT COLOR=maroon><b>INVERSE</FONT></b><BR>
+      写真のネガの様な色になる。<BR>
+      <FONT COLOR=maroon><b>SEPIA</FONT></b><BR>
+      古い写真の様なセピア色になる。<BR>
+      <FONT COLOR=maroon><b>LIGHT</FONT></b><BR>
+      画面全体が明るくなる。<BR>
+      <FONT COLOR=maroon><b>SUNSET</FONT></b><BR>
+      夕焼けの様に画面が赤くなる。<BR>
+      <FONT COLOR=maroon><b>NIGHT</FONT></b><BR>
+      夜の様に画面が暗くなる。<BR>
+      <FONT COLOR=maroon><b>MIDNIGHT</FONT></b><BR>
+      真夜中の様に画面が暗くなる。<BR>
+      <FONT COLOR=maroon><b>"#FFFFFF"の様にHTML様式で色を指定</FONT></b><BR>
+      その色のサングラスを通してみたような画面になる。<BR>
+      "#808080"の時に変更なし。
+
+      <FONT COLOR=purple><B><LI>
+      &lt;/SUNGLASS&gt;
+      </B></FONT><BR>
+      SUNGLASSタグの効果をやめる。
+
+   </OL>
+
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;SUNGLASS COLOR="SUNSET"&gt;
+      </B></FONT><BR>
+      これから読み込む絵が夕焼けのように赤くなる。
+      
+      <FONT COLOR=green><B><LI>
+      &lt;SUNGLASS COLOR="#8080FF"&gt;
+      </B></FONT><BR>
+      これから読み込む絵が"#8080FF"の色(<FONT COLOR="#FF8080">■</FONT>)のサングラスを
+      通して見ているかの様な色になる。<BR>
+      赤と緑の色は80なので変化せず、青の色だけ明るさが倍になる。
+
+      <FONT COLOR=green><B><LI>
+      &lt;/SUNGLASS&gt;
+      </B></FONT><BR>
+      サングラスタグの演出をやめる。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+
+<!---------------------------------------------------->
+<a name="curtain">
+<H2>CURTAIN</H2>
+<table border="1"><tr><td>
+　画面表示を一時停止して人物や文字の表示を貯めておき、
+まとめて行います。<BR>
+　これと、BACKGROUNDなどを組み合わせて、複数の人物の同時退場、
+背景と人物を同時に入れ替える、
+、文字をエフェクトをつけて
+表示する、画面のフラッシュ、
+ブラックイン、ホワイトアウト、クロスフェード、などができます。<BR>
+　流れとしては、まず&lt;CURTIAN&gt;で画面が更新されなくなる
+(つまり劇中でカーテンが降りる)。<BR>
+　その間に画面に文字を書いたり、人物を登場させたり、背景を
+入れ替えたりします。カーテンが降りているので読者にはこの様子は
+みえません。すべての操作が終了したら&lt;/CURTIAN&gt;でカーテン
+をあげます。<BR>
+　読者にはカーテンが降りている間の画面の更新は同時に行われたように
+見えます。
+<hr>
+<P>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      EFFECT
+      </B></FONT>[省略時はBACKGROUNDの効果]<BR>
+      上げるときの効果を指定します。<BR>
+      詳しくは<a href="#effect">EFFECTキー</a>を見て下さい。<BR>
+      <FONT COLOR=purple><B><LI>
+      WAIT
+      </B></FONT>[省略時の値はBACKGROUNDと同じ]<BR>
+      効果のスピードを指定します。<BR>
+      0で全速。<BR>
+      100で設定ダイアログでもっとも遅くしたときと同じスピードです。<BR>
+      100以上の値も指定できます。<BR>
+</OL>
+例<BR>
+   <OL><LI><BR>
+      <FONT COLOR=green><B>
+      
+&lt;CURTAIN&gt;<BR>
+　文字をオーバーラップさせて表示します<BR>
+&lt;/CURTAIN EFFECT="EF_OVERLAP"&gt;<BR>
+</B></FONT>
+&lt;CURTAIN&gt;で画面が更新されなくなります。
+「文字をオーバーラップさせて表示します」すぐには表示されません。<BR>
+&lt;/CURTAIN EFFECT="EF_OVERLAP"&gt;の部分で文字が表示されます<BR>
+EFFECT="EF_OVERLAP"が指定されていますので、文字がオーバーラップの
+効果をつけて表示されます。<BR>
+
+   <LI><BR>
+      <FONT COLOR=green><B>
+&lt;BACKGROUND COLOR="#000000"&gt;<BR>
+&lt;CURTAIN&gt;<BR>
+&lt;ENTER NAME="マルチ" ALIGN="CENTER"&gt;<BR>
+&lt;ACT NAME="マルチ" SRC="LVNS3DAT.PAK\c0619.lf2" FOLDER="LVNS3" TOP="136" LEFT="403"&gt;<BR>
+&lt;BACKGROUND SRC="ゲーセン内" FOLDER="LVNS3"&gt;<BR>
+&lt;/CURTAIN EFFECT="EF_OVERLAP"&gt;<BR>
+<BR>
+</B></FONT>
+　CURTAINが無ければ人物が入場してから、背景が変更されます。<BR>
+　しかし、CURTAINが有るので&lt;/CURTAIN&gt;のところで同時に行われます。<BR>
+　よって画面はブラックインしていきます。<BR>
+
+   <LI><BR>
+      <FONT COLOR=green><B>
+
+&lt;CURTAIN&gt;<BR>
+&lt;EXIT NAME="ALL"&gt;<BR>
+&lt;BACKGROUND COLOR="#FFFFFF"&gt;<BR>
+&lt;/CURTAIN EFFECT="EF_OVERLAP"&gt;<BR>
+<BR>
+</B></FONT>
+　例2の続きです。<BR>
+　カーテンが降りているうちに真っ白の背景に変更してますから、
+画面がホワイトアウトしていきます。<BR>
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="timer">
+<H2>TIMERタグ</H2>
+<table border="1"><tr><td>
+　音楽と同期をとる場合などに使います。<BR>
+文字の表示を一定時間止めたいときなどは<a href="text.html#w">W</A>を使って下さい。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+<P>
+      <FONT COLOR=purple><B><LI>
+      キーを指定しない
+      </B></FONT><BR>
+      TIMERタグで使われる時計をリセットして0に戻す。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      TIME
+      </B></FONT>[省略時は↑となる]<BR>
+      時間を設定。この時間になるまで次のDNMLタグを
+      実行しません。<BR>
+      "00:00"の様に[分:秒]単位と"00:00:00"の様に[分:秒:1/60秒]単位<BR>
+      以前に&lt;TIMER&gt;を使った時から指定した時間になるまで待つ。
+
+<P>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI><BR>
+         &lt;TIMER&gt;<BR>
+         時計をリセット<BR>
+         &lt;TIMER TIME="00:01"&gt;<BR>
+         一秒後<BR>
+         &lt;TIMER TIME="00:02"&gt;<BR>
+         二秒後<BR>
+         &lt;TIMER TIME="00:02:30"&gt;<BR>
+         2.5秒後<BR>
+      </FONT></b><BR>
+         文字がぞれぞれ一秒後、二秒後、2.5秒後に表示される。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+</BDDY>
+</HTML>
+

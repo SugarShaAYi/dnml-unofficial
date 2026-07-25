@@ -1,0 +1,688 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=x-sjis">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<h3>画面に選択肢などを表示して、物語を分岐させます。</h3>
+<a href="#a_href">A HREF(選択肢の表示)</a><BR>
+<a href="#a_name">A NAME(分岐する先の指定)</a><BR>
+<a href="#question">QUESITION(過去の選択により分岐)</a><BR>
+<a href="#memo">MEMO(前回のプレイ結果などによる分岐)</a><BR>
+<a href="#event">EVENT(イベントを発生)</a><BR>
+<a href="#answer">カードの組合わせ(複数の選択肢の組み合わせによる分岐)</a><BR>
+<a href="#card">高度なカードの使い方</a><BR>
+<hr>
+<!---------------------------------------------------->
+<a name="a_href">
+<H2>A HREFタグ</H2>
+<table border="1"><tr><td>
+物語を分岐させるための選択肢を画面に表示させます。<BR>
+複数の選択肢を表示する場合(普通そうだけど)は
+&lt;A HREF&gt;タグを続けて書いてください。&lt;A HREF&gt;
+以外のタグが出るまで、選択肢をならべて表示します。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      HREF
+      </B></FONT>[省略時には選択されてもそのまま物語をすすめます]<BR>
+      この選択肢が選ばれたときのリンク先を指定する。
+      <FONT COLOR=purple><B><LI>
+      ALT
+      </B></FONT>[省略時にはこの選択肢が自動的に選ばれる]<BR>
+      選択肢に表示する文字を指定。
+
+      <FONT COLOR=purple><B><LI>
+      ANSWER
+      </B></FONT>[省略時にはなにも設定ない]<BR>
+      <a href="#question">QUSTIONタグ</a>への解答を指定。くわしくは<a href="#question">QUESIONタグ</a>の説明
+      みてください。
+<BR><BR>
+高度な使い方として、ここでカードの計算をすることができます。<BR>
+計算はこの選択肢が選ばれたときのみ実行されます。<BR>
+サンプルは<a href="#card">カードの高度な使い方</a>を見て下さい。
+      <FONT COLOR=purple><B><LI>
+      VIEW
+      </B></FONT>[省略時にはこの選択肢は常に表示させる]<BR>
+      この選択肢を表示する条件を指定します。<BR>
+      指定のやり方は<a href="#question">QUSTIONタグ</a>のANSWERと
+      おなじです。<BR>
+
+      <FONT COLOR=purple><B><LI>
+      ENABLE
+      </B></FONT>[省略時には"選択できる"]<BR>
+      この選択肢を選択できるする条件を指定します。<BR>
+      指定のやり方は<a href="#question">QUSTIONタグ</a>のANSWERと
+      おなじです。<BR>
+      この中の条件を満たさなかった場合は選択肢は表示はされますが、<BR>
+      選択できません。<BR>
+      
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;A HREF="二階.dnml"    ALT="二階にいく"&gt;<BR>
+      &lt;A HREF="#一階"        ALT="一階にいく"&gt;<BR>
+      &lt;A HREF="二章.dnml#外" ALT="外に出る"&gt;<BR>
+      &lt;A HREF=""             ALT="帰る"&gt;<BR>
+      &lt;A HREF="ゲーセン"     ALT="ゲーセンに行く" VIEW="志保と約束"&gt;<BR>
+      </B></FONT><BR>
+のように書くと<BR>
+<table width="500" height="100"><tr><td bgcolor="#000000"  valign=top><FONT COLOR="white">
+二階にいく<BR>
+</font><font color="#bbbbbb">一階にいく<BR>
+外に出る<BR>
+帰る<BR>
+ゲーセンに行く</font><BR>
+</td></tr></table>
+と画面に選択肢が出る。<BR>
+<BR>
+「二階にいく」を選択すると「二階.dnml」の先頭に飛ぶ<BR>
+<BR>
+「一階にいく」を選択すると今読んでいるファイル内で、<a href="#a_name">&lt;A NAME&gt;</a>タグで<BR>
+"一階"を指定してある場所まで飛ぶ<BR>
+<BR>
+「外に出る」を選択すると「二章.DNML」の<a href="#a_name">&lt;A NAME&gt;</a>タグで<BR>
+"外"を指定してある場所まで飛ぶ<BR>
+<BR>
+「帰る」を選択するとHREFキーがないのでそのまま進める。<BR>
+<BR>
+「ゲーセンにいく」は以前にANSWERに「志保と約束」を指定してある
+選択肢を選んだことがある時のみ表示されます。
+<P>
+<BR>
+
+
+<B>分岐の仕方はHTMLとほとんど同じです。</B><BR>
+
+   <LI>選択肢を表示せずにある点を通過しただけでANSWERを設定したい場合は
+<BR>
+      <FONT COLOR=green><B>
+   &lt;A HREF="" ANSWER="通過"&gt;
+      </B></FONT>
+   とALTを省略してHREFに""を指定してください。<BR>
+
+   <LI><BR>
+三つあるアイテムの内、二つを選ばせる例です。<BR>
+このサンプルは「DNMLBook\サンプル\viewとenable.dnml」に入っています。<BR>
+<BR>
+      <FONT COLOR=green><B>
+&lt;A NAME="選択開始"&gt;<BR>
+&lt;NP&gt;<BR>
+　　&lt;QUESTION ANSWER="(アイテムの数=((銃+弾)+鍵))"&gt;<BR>
+</B>&lt;!--最初にアイテムの数を計算します--&gt;<BR><B>
+
+　　&lt;QUESTION HREF="#選択終わり" ANSWER="(アイテムの数?2)"&gt;<BR>
+</B>&lt;!--アイテムを２個持っていたら終わり--&gt;<BR><B>
+　　&lt;EVENT ANSWER="(アイテムの数?0)"&gt;<BR>
+　　　　「この中から二つだけもって行け」&lt;BR&gt;<BR>
+　　&lt;/EVENT&gt;<BR>
+</B>&lt;!--まだアイテムを持っていなかったらこの台詞が表示される--&gt;<BR><B>
+
+<P>
+　　&lt;EVENT ANSWER="(アイテムの数?1)"&gt;<BR>
+　　　　「もう一つだ」&lt;BR&gt;<BR>
+　　&lt;/EVENT&gt;<BR>
+</B>&lt;!--一つ持っていたらこの台詞が表示される--&gt;<BR><B>
+
+&lt;EVENT ANSWER="鍵"&gt;いまは鍵を持っている&lt;BR&gt;&lt;/EVENT&gt;<BR>
+&lt;EVENT ANSWER="銃"&gt;いまは銃を持っている&lt;BR&gt;&lt;/EVENT&gt;<BR>
+&lt;EVENT ANSWER="弾"&gt;いまは弾を持っている&lt;BR&gt;&lt;/EVENT&gt;<BR>
+</B>&lt;!--アイテムを持っていたらそれぞれ表示される--&gt;<BR><B>
+<P>
+&lt;A HREF="#選択開始" ALT="では鍵を持っていく" ANSWER="鍵" ENABLE="(!鍵)"&gt;<BR>
+&lt;A HREF="#選択開始" ALT="では銃を持っていく" ANSWER="銃" ENABLE="(!銃)"&gt;<BR>
+&lt;A HREF="#選択開始" ALT="では弾を持っていく" ANSWER="弾" ENABLE="(!弾)"&gt;<BR>
+</B>&lt;!--持っているアイテムは選択できない--&gt;<BR><B>
+&lt;A NAME="選択終わり"&gt;<BR>
+
+<P>
+行け。&lt;BR&gt;<BR>
+      </B></FONT>
+   <LI><BR><BR>
+例３で鍵、もしくは銃と弾を選択していれば、扉の中に入れます。<BR>
+
+         <FONT COLOR=green><B>
+扉がある。&lt;BR&gt;<BR>
+&lt;EVENT ANSWER="鍵"&gt;鍵を持っている&lt;NL&gt;&lt;/EVENT&gt;<BR>
+</B>&lt;!--鍵を持っていたら表示される--&gt;<BR><B>
+&lt;EVENT ANSWER="(銃&(!弾))"&gt;銃だけを持っている&lt;NL&gt;&lt;/EVENT&gt;<BR>
+</B>&lt;!--銃だけをを持っていたら表示される--&gt;<BR><B>
+&lt;EVENT ANSWER="((!銃)&弾)"&gt;弾だけを持っている&lt;NL&gt;&lt;/EVENT&gt;<BR>
+</B>&lt;!--弾だけをを持っていたら表示される--&gt;<BR><B>
+&lt;EVENT ANSWER="(銃&弾)"&gt;銃と弾を持っている&lt;NL&gt;&lt;/EVENT&gt;<BR>
+</B>&lt;!--銃と弾をを持っていたら表示される--&gt;<BR><B>
+&lt;BR&gt;<BR>
+&lt;A HREF="" ALT="他の道を探す"&gt;<BR>
+&lt;A HREF="扉の中.dnml" ALT="鍵を使う" VIEW="鍵"&gt;<BR>
+&lt;A HREF="扉の中.dnml" ALT="銃で壊す" VIEW="(銃&弾)"&gt;<BR>
+      </B></FONT>
+
+
+   
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="a_name">
+<H2>A NAMEタグ</H2>
+<table border="1"><tr><td>
+分岐先となる名前をつける。
+くわしくは<a href="#a_href">&lt;A HREF&gt;</a>をみてください
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      NAME
+      </B></FONT>[省略不可]<BR>
+      リンク先となる名前を指定。
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+      &lt;A NAME="外"&gt;
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+<!---------------------------------------------------->
+<a name="question">
+<H2>QUESTIONタグ</H2>
+<table border="1"><tr><td>
+   遅延分岐、<a href="#a_href">A HREF</a>タグで出された解答に応じて分岐する。<BR>
+   以前にANSWERに指定された選択肢を選択したことがあれば<BR>
+   HREFで指定されたところに飛ぶ。<BR>
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      HREF
+      </B></FONT>[省略時には選択されてもそのまま物語をすすめます]<BR>
+      キーワードが一致したときの、リンク先を指定します。
+   </OL>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      ANSWER
+      </B></FONT>[省略不可]<BR>
+      分岐の条件となるカードの名前を指定。<BR>
+      <a href="#answer">カードを組み合わせて</a>使う事が出来ます。
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+どの本を買おうか<BR>
+   &lt;A HREF="" ALT="Ａ.ギャグ漫画"  ANSWER="漫画を買った"&gt;<BR>
+   &lt;A HREF="" ALT="Ｂ.Hな本" &gt<BR>
+ ・<BR>
+ ・<BR>
+ ・<BR>
+ ・<BR>
+どんな本を買ったの？<BR>
+&lt;QUESTION ANSWER="漫画を買った" HREF="初音と読む.dnml"&gt;<BR>
+初音さんに見つからないように隠さないと。<BR>
+      </B></FONT><BR>
+
+<BR>
+以上のDNMLを実行するとまず画面に<BR>
+<BR>
+－－－－－－－－－－－－－－－－－－－<BR>
+どの本を買おうか<BR>
+   Ａ.ギャグ漫画<BR>
+   Ｂ.Hな本<BR>
+－－－－－－－－－－－－－－－－－－－<BR>
+<BR>
+の選択肢がでます。<BR>
+どちらを選んでもHREFキーが省略してあるため、分岐はしません<BR>
+(もちろん分岐させてもOKです。)<BR>
+  [Ａ.ギャグ漫画]を選択するとANSWERキーに<FONT COLOR=red>"漫画を買った"</FONT>
+が指定されているため、「漫画を買った」と書かれた<FONT COLOR=red>カード</FONT>
+が読者に配られます。
+<BR>
+　そのままシナリオが進み、「どんな本をかったの？」
+と画面に表示された後にQUESTIONタグが実行されます。<BR>
+　読者がANSWERキーで指定した名前のカードを持っていれば、
+HREFで指定された場所へ飛びます。なければそのまま
+シナリオはすすみます。<BR>
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+<!---------------------------------------------------->
+<a name="event">
+<H2>EVENTタグ</H2>
+<table border="1"><tr><td>
+条件がそろったときに&lt;EVENT&gt;と&lt;/EVENT&gt;
+の間にあるタグを実行する。
+<hr>
+</UL>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      ANSWER
+      </B></FONT>[省略不可]<BR>
+      イベントの条件となるカードの名前を指定。<BR>
+       <a href="#answer">カードを組み合わせて</a>使う事が出来ます。
+
+   </OL>
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+
+      &lt;A HREF="" ALT="鍵を拾う" ANSWER="鍵持ってる"&gt;<BR>
+      &lt;A HREF="" ALT="拾わない"&gt;<BR>
+
+　　　・<BR>
+　　　・<BR>
+　　　・<BR>
+扉がある。どうする？<BR>
+      &lt;EVENT ASNWER="鍵持ってる"&gt;<BR>
+　　　　&lt;A HREF="扉の中.dnml"  &gt;<BR>
+      &lt;/EVENT&gt;<BR>
+      </B></FONT><BR>
+   </OL>
+最初の選択肢で"鍵を拾う"を選択した場合のみに、"扉の中.dnml"を実行する。
+
+</td></tr></table>
+<!---------------------------------------------------->
+<!---------------------------------------------------->
+<a name="memo">
+<H2>MEMO</H2>
+<table border="1"><tr><td>
+　<a href="branch.html#question">カード</a>の内容をメモに書いたり読んだりします。<BR>
+　このメモはセーブやロードしても消えません。<BR>
+これでクリア後に選択肢が増えるシナリオや
+全てのセーブデータで合計したCG達成率などができます。<BR>
+　読み書きできるメモ用紙は2枚有ります。<BR>
+そのしおり専用の１枚(クリアしたエンディングの数など)と、しおり全体で共有される1枚(CG達成率など)の
+<hr>
+<P>
+キー<BR>
+   <OL>
+      <FONT COLOR=purple><B><LI>
+      SRC
+      </B></FONT>[省略不可]<BR>
+      書き写す<B>"元"</B>の名前を指定します。<BR>
+      <FONT COLOR=purple><B><LI>
+      DEST
+      </B></FONT>[省略不可]<BR>
+      書き写す<B>"先"</B>の名前を指定します。<BR>
+<P>
+　      SRCとDESTには<a href="branch.html#question">カードの名前</a>か
+      メモ用紙の名前("BOOKMARK"か"BOOK")が指定できます。<BR>
+
+<P>
+      　SRCにカードの名前を指定した場合にはDESTに指定したメモ用紙に
+      内容が書き写されます。<BR>
+      　DESTにカードの名前を指定した場合にはメモ用紙に以前メモした内容
+      がカードに書き込まれます。<BR>
+
+<P>      
+
+　      "BOOKMARK"を指定した時にはそのメモはそのしおり<BR>
+      からしか見えません。そのしおりでクリアしたエンディングの数など、
+      他のしおりと関係ないメモにはこれを使って下さい。
+      <BR>
+　      "BOOK"を指定したときにはメモの内容がすべてのブックマークで共有されます。<BR>
+      全キャラクリアしたらタイトル画面におまけモードを足したいとか、<BR>
+      CG達成率などを使いたいときにはこちらを指定して下さい。
+
+<P>
+　SRCのみに使用できる特殊な名前として"CLEAR"が有ります。
+これを使用するとDESTに指定されたメモ用紙の内容が全て消えます。
+
+   </OL>
+例<BR>
+   <OL>
+      <B>くわしいサンプルは「DNMLBook\サンプル\memo.dnml」を見て下さい。</B><BR>
+      <LI>
+      <FONT COLOR=green><B>
+      &lt;MEMO SRC="CLEAR" MODE="BOOKMARK"&gt;<BR>
+      </B></FONT><BR>
+      BOOKMARKにメモされた内容を全て削除します。
+      <LI>
+      <FONT COLOR=green><B>
+      &lt;MEMO SRC="CLEAR" MODE="BOOK"&gt;<BR>
+      </B></FONT><BR>
+      BOOKにメモされた内容を全て削除します。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+<!---------------------------------------------------->
+<a name="answer">
+<H2>ANSWERキー内での、カードの組み合わせ</H2>
+<table border="1"><tr><td>
+　ANSWER="漫画を買った"などのように直接カードの名前を指定しただけでは、
+使いにくいこともあると思います。<BR>
+　例えば二つのイベントを同時にクリアしたのみに物語を分岐させたいこと
+もあるでしょう。<BR>
+　ポーカーでは同じ数字の札を持つことで「ツーペア」という役を作るように、
+DNMLでも読者が持っているカードの組み合わせを見て分岐できます。<BR>
+　ここではその方法について説明します。
+<hr>
+</UL>
+　多くのアドベンチャーゲームで「フラグ」と呼ばれる<FONT COLOR=red>物語の
+分岐管理を、DNMLではトランプゲームの比喩で表現</FONT>します。<BR>
+　読者は作者の用意する選択肢の中から好きなカードを選択し、
+作者は読者が持っているカードから、どのような役ができるか見ているわけです。
+<P><BR>
+　以下のような選択肢を選んだ場合。
+<P>
+<FONT COLOR=green><B>
+&lt;A HREF="" ALT="Ａ.弾をもらう" ANSWER="弾を持っている"&gt;
+</FONT COLOR=green></B><BR>
+<P>
+　読者には「弾を持っている」と書かれたカードが配られます。
+選択により渡されたカードの裏には1と書いてあります。つまり、これは<FONT COLOR=red>トランプカードような物で表には「弾を持っている」
+、裏には「1」と数字が書いて</FONT>あります。<BR>
+
+　次にこの様な選択肢を選んだ場合。
+<P>
+<FONT COLOR=green><B>
+&lt;A HREF="" ALT="銃をもらう" ANSWER="銃を持っている"&gt;
+</FONT COLOR=green></B><BR>
+<P>
+　読者には「銃を持っている」と書かれたカードが配られます。<BR>
+　そこで以下のQUESTIONタグが実行されたとします。
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION ANSWER="(銃を持っている & 弾を持っている)"<BR>
+　　　HREF="敵を倒した.dnml" &gt;
+</FONT COLOR=green></B><BR>
+<P>
+　QUESTIONタグが実行されると、ゲームの親はいったん読者より全てのカードを預かります。
+<P>
+　預かったカードよりANSWERキーの「(銃を持っている & 弾を持っている)」の括弧の中に書かれた
+名前のカードを探します。同じ名前のカードがあればそのまま使い、なければ裏に0と書かれたカードを用意します。<BR>
+　次にその裏の数字を見て、<FONT COLOR=red>カードの名前を数字に置き換え</FONT>ます。<BR>
+　この結果二つとも選択肢を選んだことがあれば、<FONT COLOR=red>「(銃を持っている & 弾を持っている)」</FONT>は<FONT COLOR=red>「( 1 & 1 )」</FONT>となります。<BR>
+　次に下に書いてある、「使える組み合わせリスト」の6番をを見てください。<BR>
+　「&」は<FONT COLOR=red>「両方とも0でない時に括弧の値は1になる。それ以外は0」</FONT>と書いてあります。<BR>
+　「( 1 & 1 )」は両方とも0でありませんので1となります。<BR>
+　最終的に得られた値は0以外ならHREFのリンク先へ飛びます。<BR>
+　もし、両方の選択肢を選んだことがなければ、最終的な値は0になるので
+そのまま話を進めます。
+
+<P>
+　最後にこちらで用意したカードを含めて、全てのカードを読者に返します。
+
+<hr>
+　カードの裏の値は読者が持っていれば裏に書かれた値、なければ0になる。<BR>
+　ANSWERキーの中で()を使った場合、最後に計算された括弧の値が0でなかったら
+HREFのリンク先にジャンプする。<BR>
+　()を使わなかった場合は指定された名前のカードをもっていればHREFを実行する。
+(そのカードの裏の値は0の時はのぞく)<BR>
+　カードの裏を表示したいときには
+<a href="all.html#write">WRITEタグ</a>
+を使ってください。<a href="form.html#form">FORM</a>や<a href="#equal">[](大かっこ)</a>を使えば、カードの裏には数字だけでなく文字も書き込めます。
+   <OL>
+      <b>使える組み合わせリスト<BR><BR></b>
+      
+      <FONT COLOR=purple><B><LI>
+      (   a )<BR>
+      aが0以外か？
+      </B></FONT><BR>
+      aが0以外の時、1。0の時は0になる。
+      <FONT COLOR=purple><B><LI>
+      (   ! a )<BR>
+      aが0か？
+      </B></FONT><BR>
+      aが0以外の時、0。0の時は1になる。
+      <FONT COLOR=purple><B><LI>
+      ( @ a )<BR>
+      0～aまでの乱数を返す。
+      </B></FONT><BR>
+      括弧の値はaを最大とする乱数。
+      <FONT COLOR=purple><B><LI>
+      ( a ? b )<BR>
+      aとbが等しいか？
+      </B></FONT><BR>
+      aとbが等しい時に括弧の値は1になる。そうでないときは0。<BR>
+      ここでは言葉を[ ](大かっこ)でくくると文字を比べらる。
+      <FONT COLOR=purple><B><LI><a name="equal">
+      ( a = b )<BR>
+      aとbを同じにする。
+      </B></FONT><BR>
+      aにbを代入する。括弧の値はa<BR>
+      左の値が[ ]で囲ってあり、右がカードの名前だったときは<BR>
+      [ ]の文字列がカードの裏に書かれる。<BR>
+      右のカードにコピーされる。<BR>
+      文字をコピーした場合には括弧の値は1<BR>
+      <FONT COLOR=purple><B><LI>
+      ( a ^ b )<BR>
+      aが0でないならbを実行する。
+      </B></FONT><BR>
+      aが0でない時にのみbを実行します。<BR>
+      <FONT COLOR=purple><B><LI>
+      ( a | b )<BR>
+      もしくは
+      </B></FONT><BR>
+      片方が0でない時に括弧の値は1になる。それ以外は0。
+      <FONT COLOR=purple><B><LI>
+      ( a & b )<BR>
+      かつ
+      </B></FONT><BR>
+      両方とも0でない時に括弧の値は1になる。それ以外は0。
+      <FONT COLOR=purple><B><LI>
+      ( a > b )<BR>
+      左が大きい
+      </B></FONT><BR>
+      左が大きい時に括弧の値は1になる。それ以外は0。
+      <FONT COLOR=purple><B><LI>
+      ( a < b )<BR>
+      右が大きい
+      </B></FONT><BR>
+      右が大きい時に括弧の値は1になる。それ以外は0。
+      <FONT COLOR=purple><B><LI>
+      ( a + b )<BR>
+      aとbを足す
+      </B></FONT><BR>
+      括弧の値はa+bの値
+      <FONT COLOR=purple><B><LI>
+      ( a - b )<BR>
+      aからbを引く
+      </B></FONT><BR>
+      括弧の値はa-bの値
+      <FONT COLOR=purple><B><LI>
+      ( a * b )<BR>
+      aとbをかける
+      </B></FONT><BR>
+      括弧の値はa*bの値
+      <FONT COLOR=purple><B><LI>
+      ( a / b )<BR>
+      aをbで割る
+      </B></FONT><BR>
+      括弧の値はa/bの値、bが0の時は0。
+      <FONT COLOR=purple><B><LI>
+      ( a % b )<BR>
+      aをbで割った余り。
+      </B></FONT><BR>
+      括弧の値はaをbで割った余り。
+   </OL>
+<OL>
+<B>最初からあるカード</B><BR>
+      <FONT COLOR=purple><B><LI>
+      DNML_VERSION<BR>
+      </B></FONT>
+DNMLのヴァージョンは「DNML Version 2.15.03.12」の様に、四つの
+数字に分かれています。<BR>
+DNML_VERSIONには「一番左の数字×100＋左から2番目の数字」です。<BR>
+「DNML Version 2.15.03.12」の場合は215です。<BR>
+</OL>
+
+
+例<BR>
+   <OL>
+　クイズゲームの例。
+      <FONT COLOR=green><B><LI>
+
+第一問<BR>
+&lt;A HREF="" ALT="A." ANSWER="一正解"&gt;<BR>
+&lt;A HREF="" ALT="B." &gt;<BR>
+&lt;A HREF="" ALT="C." &gt;<BR>
+・<BR>
+第二問<BR>
+&lt;A HREF="" ALT="A." &gt;<BR>
+&lt;A HREF="" ALT="B." &gt;<BR>
+&lt;A HREF="" ALT="C." ANSWER="二正解"&gt;<BR>
+・<BR>
+第三問<BR>
+&lt;A HREF="" ALT="A." &gt;<BR>
+&lt;A HREF="" ALT="B." ANSWER="三正解"&gt;<BR>
+&lt;A HREF="" ALT="C." &gt;<BR>
+<P>
+<P>
+&lt;QUESTION HREF="満点.dnml"<BR>
+　　　　　ANSWER="(3 ? (点数=(三正解+(二正解+一正解))))"&gt;<BR>
+</B></FONT>
+全問正解なら、"満点.dnml"へ飛ぶ
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="満点じゃない.dnml" ANSWER="(3 &gt; 点数)"&gt;<BR>
+</B></FONT>
+点数が3点以下なら"満点じゃない.dnml"へ飛ぶ
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="一と二はできた.dnml" ANSWER="(一正解 & 二正解)"&gt;<BR>
+</B></FONT>
+一問と二問が正解なら"一と二はできた.dnml"
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="一か二はできた.dnml" ANSWER="(一正解 | 二正解)"&gt;<BR>
+</B></FONT>
+一問か二問が正解なら"一か二はできた.dnml"
+<P>
+
+<FONT COLOR=green><B>
+点数は&lt;WRITE SRC="点数"&gt;でした。<BR>
+</B></FONT>
+<a href="others.html#write">WRITEタグ</a>でカードの裏の数字を表示できる。
+
+
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="" ANSWER="(友好度 =    0  )"&gt;
+</B></FONT><BR>
+友好度を0にする。
+
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="" ANSWER="(友好度 = (友好度 + (点数)))"&gt;
+</B></FONT><BR>
+点数が0点でなかったら友好度が1増える。
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="" ANSWER="(友好度 = (友好度 + (1 &lt; 点数)))"&gt;
+</B></FONT><BR>
+点数が一点より大きければ友好度が1増える。
+
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="イベント.dnml" ANSWER="(友好度 &gt; 3)"&gt;
+</B></FONT><BR>
+友好度が3より大きければイベント発生。
+
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION ANSWER="(サイコロ=((@5)+1))"&gt;<BR>
+&lt;WRITE SRC="サイコロ"&gt;<BR>
+</B></FONT>
+(@5)は0～5迄の乱数が入ります。((@5)+1)で1を足すので<BR>
+"サイコロ"には
+1～6迄の乱数が入る。
+<BR>
+
+
+<P>
+<FONT COLOR=green><B>
+&lt;QUESTION ANSWER="((サイコロ > 5)^(メッセージ=[あなたの勝ちです]))"&gt;<BR>
+&lt;WRITE SRC="メッセージ"&gt;<BR>
+</B></FONT>
+サイコロで6を出したときのみ、「あなたの勝ちです」と表示されます。
+<BR>
+
+
+<BR>
+<FONT COLOR=green><B>
+&lt;QUESTION ANSWER="(名字=[折原])"&gt;
+</B></FONT><BR>
+名字という名前の裏に折原と書く。<BR>
+
+&lt;WRITE SRC="名前"&gt;と書くと折原と表示される。
+<BR><BR>
+<FONT COLOR=green><B>
+&lt;EVENT ANSWER="(DNML_VERSION<215)"&gt;<BR>
+　　このブックはDNMLのヴァージョン2.15以上を使って下さい。<BR>
+　　&lt;END&gt;<BR>
+&lt;/EVENT&gt;<BR>
+</B></FONT>
+　DNMLのヴァージョンが2.15より小さいと、終了します。
+      </B></FONT><BR>
+
+<BR>
+<FONT COLOR=green><B>
+&lt;QUESTION HREF="イベント.dnml" ANSWER="(好きな物?[焼きビーフン])"&gt;<BR>
+</B></FONT>
+カード、好きな物の裏に書いてある文字が焼きビーフンだとイベント発生。<BR>
+      </B></FONT><BR>
+   </OL>
+</td></tr></table>
+
+</td></tr></table>
+
+
+
+<!---------------------------------------------------->
+<a name="card">
+<H2>カードの高度な使い方</H2>
+<table border="1"><tr><td>
+　カードは名前を{}(中かっこ)で囲う事により、全てのタグの中で使う事が
+できます。<BR>
+　中かっこの中にカードの名前を書くと、そこの部分をそのカードの
+裏に書かれた値に書き換えます。<BR>
+この置き換えはALIASの置き換えより後に行われます。
+<hr>
+
+例<BR>
+   <OL>
+      <FONT COLOR=green><B><LI>
+武器をえらんでください。<BR>
+&lt;A HREF="" ALT="クリムゾン" ANSWER="(<FONT COLOR="red">武器</FONT>=[クリムゾン])"&gt;<BR>
+&lt;A HREF="" ALT="デスクリムゾン" ANSWER="(<FONT COLOR="red">武器</FONT>=[デスクリムゾン])"&gt;<BR>
+&lt;A HREF="" ALT="キングクリムゾン" ANSWER="(<FONT COLOR="red">武器</FONT>=[キングクリムゾン])"&gt;<BR>
+<BR>
+
+佐藤が現れた。どうする？<BR>
+&lt;A HREF="" ALT="<FONT COLOR="red">{武器}</FONT>を使う" ANSWER="(メッセージ=[「おーのー」佐藤を倒した])"&gt;<BR>
+&lt;A HREF="" ALT="逃げる" ANSWER="(メッセージ=[越前は逃げ出した])"&gt;<BR>
+
+
+&lt;WRITE SRC="メッセージ"&gt;<BR>
+      </B></FONT><BR>
+このサンプルは「DNMLBook\サンプル\card2.dnml」に入っています。<BR>
+一つ目の選択肢で「武器」という名前のカードの裏に、読者が選んだ武器の
+名前が書かれます。<BR>
+二つめの選択肢では<FONT COLOR="red">{武器}</FONT>と書かれた部分を
+その裏に書かれた名前に置き換えます。<BR>
+実際の選択肢には読者が選んだ武器の名前が表示されます。
+
+   </OL>
+</td></tr></table>
+<!---------------------------------------------------->
+
+
+
+</BDDY>
+</HTML>
+
